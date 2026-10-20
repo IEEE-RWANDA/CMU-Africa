@@ -4,19 +4,32 @@ import FadeIn from './FadeIn';
 import { Icons } from './Icons';
 import { GALLERY_IMAGES } from '../data';
 
-// A fixed-height mosaic. Every tile is a slideshow that cross-fades through photos of
-// the same orientation (portrait tiles show portrait photos, landscape tiles landscape
-// photos), so all the photos appear without making the page long.
+// A fixed-height mosaic with mixed tile shapes. Every tile is a slideshow that cross-fades
+// through photos of the same orientation (the tall tile shows portrait photos, every other
+// tile landscape photos), so all the photos appear without making the page long.
 //
-// Mobile / tablet: 2 columns x 6 rows. Desktop (lg): 4 columns x 3 rows.
+// Desktop (lg): 6 columns x 4 rows            Mobile / tablet: 2 columns x 9 rows
+//   [ big landscape 3x2 ][ tall portrait 2x3 ][s]
+//   [                   ][                   ][s]
+//   [ square 2x2 ][s]   [                   ][s]
+//   [            ][s]   [ wide strip 2x1     ][s]
 const SLOTS = [
-    { orientation: 'portrait', interval: 5600, place: 'col-start-1 row-start-1 row-span-2 lg:col-start-1 lg:row-start-1 lg:row-span-2' },
-    { orientation: 'landscape', interval: 6400, place: 'col-start-1 col-span-2 row-start-3 row-span-2 lg:col-start-2 lg:col-span-2 lg:row-start-1 lg:row-span-2' },
-    { orientation: 'portrait', interval: 7000, place: 'col-start-1 row-start-5 row-span-2 lg:col-start-4 lg:row-start-1 lg:row-span-2' },
-    { orientation: 'landscape', interval: 5200, place: 'col-start-2 row-start-1 lg:col-start-1 lg:row-start-3' },
-    { orientation: 'landscape', interval: 6000, place: 'col-start-2 row-start-2 lg:col-start-2 lg:row-start-3' },
-    { orientation: 'landscape', interval: 7400, place: 'col-start-2 row-start-5 lg:col-start-3 lg:row-start-3' },
-    { orientation: 'landscape', interval: 6800, place: 'col-start-2 row-start-6 lg:col-start-4 lg:row-start-3' },
+    // big landscape
+    { orientation: 'landscape', interval: 6400, place: 'col-start-1 col-span-2 row-start-1 row-span-2 lg:col-start-1 lg:col-span-3 lg:row-start-1 lg:row-span-2' },
+    // tall portrait
+    { orientation: 'portrait', interval: 5600, place: 'col-start-1 row-start-3 row-span-2 lg:col-start-4 lg:col-span-2 lg:row-start-1 lg:row-span-3' },
+    // small tiles, top right column
+    { orientation: 'landscape', interval: 5200, place: 'col-start-2 row-start-3 lg:col-start-6 lg:row-start-1' },
+    { orientation: 'landscape', interval: 6000, place: 'col-start-2 row-start-4 lg:col-start-6 lg:row-start-2' },
+    // square
+    { orientation: 'landscape', interval: 7000, place: 'col-start-1 col-span-2 row-start-5 row-span-2 lg:col-start-1 lg:col-span-2 lg:row-start-3 lg:row-span-2' },
+    // wide strip (a 1x2 tile on mobile)
+    { orientation: 'landscape', interval: 6800, place: 'col-start-1 row-start-7 row-span-2 lg:col-start-4 lg:col-span-2 lg:row-start-4 lg:row-span-1' },
+    // small tiles
+    { orientation: 'landscape', interval: 7400, place: 'col-start-2 row-start-7 lg:col-start-3 lg:row-start-3' },
+    { orientation: 'landscape', interval: 5800, place: 'col-start-2 row-start-8 lg:col-start-3 lg:row-start-4' },
+    { orientation: 'landscape', interval: 6200, place: 'col-start-1 row-start-9 lg:col-start-6 lg:row-start-3' },
+    { orientation: 'landscape', interval: 7200, place: 'col-start-2 row-start-9 lg:col-start-6 lg:row-start-4' },
 ];
 
 // Deal the photos out to the slots of the matching orientation, round-robin.
@@ -135,7 +148,7 @@ const Gallery = () => {
             <SectionHeading title="Gallery" subtitle="Previous activities" />
 
             <FadeIn>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[110px] md:auto-rows-[130px] lg:auto-rows-[190px]">
+                <div className="grid grid-cols-2 lg:grid-cols-6 gap-3 md:gap-4 auto-rows-[100px] md:auto-rows-[120px] lg:auto-rows-[150px] xl:auto-rows-[190px]">
                     {SLOTS.map((slot, i) => (
                         <SlideTile
                             key={i}

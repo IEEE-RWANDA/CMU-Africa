@@ -14,7 +14,7 @@ const Hero = ({ isDark, theme }) => {
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <FadeIn>
                     <h1 className="mb-6">
-                        <span className={`block font-mono text-sm md:text-base tracking-[0.2em] mb-4 ${theme.eyebrow} font-semibold`}>
+                        <span className={`block font-mono text-sm md:text-base tracking-[0.2em] mb-4 ${theme.heroGold} font-semibold`}>
                             IEEE CMU-Africa Student Branch
                         </span>
                         <span className={`block text-3xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight leading-tight bg-gradient-to-r ${isDark ? 'from-brand-light to-[#2E9BD6]' : 'from-brand-dark to-brand'} bg-clip-text text-transparent`}>
@@ -22,24 +22,21 @@ const Hero = ({ isDark, theme }) => {
                         </span>
                     </h1>
                     <p className={`max-w-3xl mx-auto text-lg md:text-xl ${theme.textMuted} mb-3`}>
-                        Learn. Lead. Innovate.
+                        Lead. Build. Innovate.
                     </p>
                     <p className={`max-w-2xl mx-auto text-base ${theme.textMuted} mb-10`}>
-                        A student-led IEEE community at Carnegie Mellon University Africa in Kigali, Rwanda.
+                        A student-led IEEE community at <strong className="font-bold">Carnegie Mellon University Africa</strong> in Kigali, Rwanda.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="#about" className="px-8 py-4 bg-gold text-[#0a1f3d] font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 rounded-full">
-                            SB Overview
-                        </a>
-                        <a href="#engage" className={`px-8 py-4 border font-bold uppercase tracking-widest transition-all duration-300 rounded-full ${isDark ? 'border-brand-light text-brand-light hover:bg-brand-light hover:text-[#0a1f3d]' : 'border-brand text-brand hover:bg-brand hover:text-white'}`}>
-                            Volunteer With Us
+                    <div className="flex justify-center">
+                        <a href="#about" className={`px-10 py-4 border font-bold uppercase tracking-widest transition-all duration-300 rounded-full ${isDark ? 'border-brand-light text-brand-light hover:bg-brand-light hover:text-[#0a1f3d]' : 'border-brand text-brand hover:bg-brand hover:text-white'}`}>
+                            Learn More
                         </a>
                     </div>
                 </FadeIn>
             </div>
 
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-                <div className="transform rotate-90 text-gold">
+                <div className={`transform rotate-90 ${theme.heroGold}`}>
                     <Icons.ArrowRight size={24} />
                 </div>
             </div>

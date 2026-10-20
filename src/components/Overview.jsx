@@ -21,7 +21,7 @@ const Overview = () => {
                     <FadeIn>
                         <div className="space-y-8">
                             <div className={`text-sm uppercase tracking-[0.35em] ${theme.eyebrow}`}>About the Student Branch</div>
-                            <h2 className={`text-4xl md:text-5xl font-display font-black ${theme.text}`}>Growing Africa&rsquo;s Tech Leaders, From Kigali</h2>
+                            <h2 className={`text-4xl md:text-5xl font-display font-black ${theme.text}`}>Growing Africa&rsquo;s Tech Leaders</h2>
                             <p className={`max-w-3xl text-lg leading-8 ${theme.textMuted}`}>
                                 Carnegie Mellon University Africa (CMU-Africa), a college of Carnegie Mellon University based in Kigali, Rwanda, brings together students and faculty from over 22 nationalities across Africa. It delivers a world-class education tailored to African priorities, with an emphasis on applied research, industry collaboration, and entrepreneurship to develop technology leaders and scalable solutions for the continent.
                             </p>

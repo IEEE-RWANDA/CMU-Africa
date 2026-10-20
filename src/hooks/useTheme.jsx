@@ -24,6 +24,8 @@ export const ThemeProvider = ({ children }) => {
         // timeline rail and small gold label
         rail: isDark ? 'border-white/15' : 'border-brand/25',
         eyebrow: isDark ? 'text-gold' : 'text-brand',
+        // hero banner + scroll arrow are always gold; a deeper gold keeps them legible on the light theme
+        heroGold: isDark ? 'text-gold' : 'text-[#C28F00]',
         goldText: isDark ? 'text-gold' : 'text-[#8a6500]',
         border: isDark ? 'border-white/10' : 'border-gray-200',
         cardBg: isDark ? 'bg-[#06285a]' : 'bg-white',

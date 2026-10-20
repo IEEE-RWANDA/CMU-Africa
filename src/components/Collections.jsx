@@ -34,7 +34,7 @@ const Collections = ({ isDark }) => {
         <section id="topics" className={`py-24 px-4 md:px-6 ${isDark ? 'bg-[#02142f]' : 'bg-[#e6eef8]'}`}>
             <div className="w-full max-w-6xl mx-auto">
                 <div className="mb-8">
-                    <SectionHeading title="What We Cover" subtitle="Grooming Africa's future leaders" />
+                    <SectionHeading title="Our Pillars" subtitle="A launchpad for Africa's Future Leaders" />
                 </div>
 
                 <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">

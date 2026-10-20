@@ -22,7 +22,7 @@ const Portfolio = ({ theme }) => {
     return (
         <section id="events" ref={sectionRef} className="py-24 px-6 md:px-12 container mx-auto">
             <FadeIn>
-                <SectionHeading title="SB Overview" subtitle="Technical · Social · STEM" />
+                <SectionHeading title="SB Overview" subtitle="Driving Impact Across Rwanda" />
 
                 <div role="tablist" aria-label="Activity categories" className="flex flex-nowrap justify-center gap-4 md:gap-8 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     {ACTIVITY_TABS.map((tab) => (

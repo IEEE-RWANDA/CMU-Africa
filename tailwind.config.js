@@ -7,13 +7,13 @@ export default {
     theme: {
         extend: {
             colors: {
-                // IEEE red palette
+                // IEEE blue palette (matches the IEEE Rwanda sites)
                 brand: {
-                    DEFAULT: '#C8102E',
-                    dark: '#8C0D23',
-                    light: '#FF6B81',
+                    DEFAULT: '#00629B',
+                    dark: '#002855',
+                    light: '#7DD3F0',
                 },
-                gold: '#D4A017',
+                gold: '#FFC72C',
             },
             // IEEE's brand typeface is Proxima Nova (licensed); Montserrat is the closest free match.
             // Arial is IEEE's designated fallback.

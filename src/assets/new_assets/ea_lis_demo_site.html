@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IEEE East Africa Leadership & Innovation Synergy</title>
+<!-- Upgraded to a more premium, tech-forward font pairing -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0f1e;
+    --ink-2: #2d3650;
+    --ink-3: #6b7494;
+    --surface: #f8fafc;
+    --white: #ffffff;
+    --blue: #1fa18d;
+    --blue-mid: #1a5fd4;
+    --blue-light: #f0f4fd;
+    --gold: #d4a017;
+    --gold-light: #fdf3d7;
+    --teal: #0b8b6f;
+    --teal-light: #e1f5f0;
+    --accent: #e84c3d;
+    --border: rgba(18,73,179,0.08);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--surface); }
+  ::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 3px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5rem;
+    height: 76px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+  }
+
+  nav.scrolled { 
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 30px rgba(10, 15, 30, 0.04); 
+    height: 68px;
+  }
+
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 14px;
+    color: var(--ink); letter-spacing: -0.01em;
+  }
+
+  .nav-brand .ieee-badge {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%); 
+    color: white;
+    font-size: 11px; font-weight: 800;
+    padding: 4px 9px; border-radius: var(--radius-sm); letter-spacing: 0.05em;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--ink-2);
+    text-decoration: none; transition: var(--transition);
+    position: relative; padding: 4px 0;
+  }
+
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: var(--blue-mid);
+    transform: scaleX(0); transform-origin: left;
+    transition: var(--transition);
+  }
+
+  .nav-links a:hover { color: var(--blue-mid); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    background: var(--ink); color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 600;
+    padding: 10px 24px; border-radius: var(--radius-sm); text-decoration: none;
+    border: 1px solid var(--ink);
+    transition: var(--transition);
+  }
+
+  .nav-cta:hover { background: var(--blue-mid); border-color: var(--blue-mid); box-shadow: 0 8px 20px rgba(26,95,212,0.25); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid; place-items: center;
+    padding: 140px 5rem 100px;
+    position: relative;
+    overflow: hidden;
+    background: #040814;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(26,95,212,0.8) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,95,212,0.8) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .hero-orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(120px);
+  }
+
+  .hero-orb-1 {
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(18,73,179,0.22) 0%, transparent 70%);
+    top: -200px; right: -100px;
+    animation: orbFloat 10s ease-in-out infinite;
+  }
+
+  .hero-orb-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(212,160,23,0.12) 0%, transparent 70%);
+    bottom: -100px; left: 50px;
+    animation: orbFloat 14s ease-in-out infinite reverse;
+  }
+
+  @keyframes orbFloat {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-40px) scale(1.08); }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2; max-width: 1000px; text-align: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(26,95,212,0.12);
+    border: 1px solid rgba(26,95,212,0.25);
+    color: #93c5fd; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 8px 20px; border-radius: 100px;
+    margin-bottom: 2.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-eyebrow .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #3b82f6;
+    box-shadow: 0 0 12px #3b82f6;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .hero-title {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+    font-size: clamp(3rem, 6.5vw, 5.5rem); line-height: 1.1;
+    color: white; letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero-title .highlight {
+    background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.25rem; line-height: 1.75; color: #94a3b8;
+    max-width: 720px; margin: 0 auto 3.5rem; font-weight: 400;
+    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 3rem; margin-bottom: 4rem;
+    opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .hero-meta-item {
+    display: flex; align-items: center; gap: 10px;
+    color: #64748b; font-size: 14px;
+  }
+
+  .hero-meta-item svg { color: var(--blue-mid); }
+
+  .hero-meta-item strong { color: #f1f5f9; font-weight: 500; }
+
+  .hero-actions {
+    display: flex; gap: 1.25rem; justify-content: center;
+    opacity: 0; animation: fadeUp 0.8s 1s forwards;
+  }
+
+  .btn-primary {
+    background: var(--blue-mid); color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600;
+    padding: 16px 36px; border-radius: var(--radius-sm); text-decoration: none;
+    border: none; cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(26,95,212,0.35);
+    background: #2563eb;
+  }
+
+  .btn-ghost {
+    background: transparent; color: #e2e8f0;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600;
+    padding: 15px 36px; border-radius: var(--radius-sm); text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.4);
+    color: white;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: #475569; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 600; opacity: 0; animation: fadeUp 0.8s 1.4s forwards;
+  }
+
+  .scroll-line {
+    width: 2px; height: 44px;
+    background: linear-gradient(to bottom, var(--blue-mid), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 0.9; transform: scaleY(1.15); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: linear-gradient(135deg, #090d1a 0%, #111827 100%); 
+    padding: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .stats-inner {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    max-width: 1400px; margin: 0 auto;
+  }
+
+  .stat-item {
+    padding: 3.5rem 2rem; text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .stat-item:last-child { border-right: none; }
+  .stat-item.visible { opacity: 1; transform: translateY(0); }
+
+  .stat-number {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3.5rem; font-weight: 800;
+    color: white; line-height: 1; margin-bottom: 10px;
+    letter-spacing: -0.03em;
+  }
+
+  .stat-number .plus { color: #f59e0b; }
+
+  .stat-label {
+    font-size: 12px; font-weight: 600; color: #94a3b8;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+
+  /* ── SECTION SHARED ── */
+  .section { padding: 9rem 5rem; }
+  .section-alt { background: var(--surface); }
+
+  .section-eyebrow {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--blue-mid); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 800; color: var(--ink); line-height: 1.15;
+    letter-spacing: -0.02em; margin-bottom: 1.5rem;
+  }
+
+  .section-desc {
+    font-size: 1.15rem; line-height: 1.7; color: var(--ink-3);
+    max-width: 640px;
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── ABOUT ── */
+  #about .about-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    gap: 7rem; align-items: center; max-width: 1300px; margin: 0 auto;
+  }
+
+  .about-text .lead {
+    font-size: 1.35rem; line-height: 1.65; color: var(--ink-2);
+    margin-bottom: 2rem; font-weight: 400; letter-spacing: -0.01em;
+  }
+
+  .about-text p { font-size: 1.05rem; line-height: 1.75; color: var(--ink-3); margin-bottom: 1.5rem; }
+
+  .country-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2.5rem;
+  }
+
+  .country-tag {
+    background: var(--white); color: var(--ink-2);
+    font-size: 13px; font-weight: 600;
+    padding: 8px 18px; border-radius: 100px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--ink); border-radius: var(--radius-md); padding: 3.5rem 3rem;
+    color: white; position: relative; overflow: hidden;
+    box-shadow: 0 30px 60px rgba(10,15,30,0.15);
+  }
+
+  .about-card::before {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(26,95,212,0.3) 0%, transparent 70%);
+    transform: translate(20%, -20%);
+  }
+
+  .about-card-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-bottom: 0.75rem;
+  }
+
+  .about-card-title {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700;
+    line-height: 1.25; margin-bottom: 2rem; letter-spacing: -0.02em;
+  }
+
+  .about-card-list {
+    list-style: none; display: flex; flex-direction: column; gap: 1.25rem;
+  }
+
+  .about-card-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.75);
+  }
+
+  .about-card-list li::before {
+    content: '✓'; color: #60a5fa; font-weight: bold; flex-shrink: 0;
+  }
+
+  /* ── PHASES (Decongested Grid Layout) ── */
+  #phases {
+    background: #060a16; color: white;
+    padding: 9rem 5rem;
+  }
+
+  #phases .section-title { color: white; }
+  #phases .section-eyebrow { color: #60a5fa; }
+  #phases .section-desc { color: #94a3b8; }
+
+  .phases-header {
+    max-width: 1300px; margin: 0 auto 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: end;
+  }
+
+  .phases-grid {
+    max-width: 1300px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; /* Expanded gaps significantly */
+  }
+
+  .phase-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: var(--radius-md);
+    padding: 3.5rem 2.5rem 3rem; /* Expanded internal card layout */
+    position: relative; overflow: hidden;
+    transition: var(--transition);
+    cursor: default;
+  }
+
+  .phase-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--blue-mid), #c084fc);
+    transform: scaleX(0); transform-origin: left;
+    transition: var(--transition);
+  }
+
+  .phase-card:hover { 
+    background: rgba(255,255,255,0.04); 
+    transform: translateY(-6px);
+    border-color: rgba(255,255,255,0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+  
+  .phase-card:hover::before { transform: scaleX(1); }
+
+  .phase-number {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 4.5rem; font-weight: 800;
+    color: rgba(255,255,255,0.03); line-height: 1;
+    position: absolute; top: 2rem; right: 2rem; letter-spacing: -0.04em;
+  }
+
+  .phase-tag {
+    display: inline-block; background: rgba(37, 99, 235, 0.15);
+    color: #93c5fd; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 2rem; border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .phase-title {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.4rem; font-weight: 700;
+    color: white; margin-bottom: 1.25rem; line-height: 1.3; letter-spacing: -0.01em;
+  }
+
+  .phase-desc {
+    font-size: 14.5px; line-height: 1.7; color: #94a3b8;
+    margin-bottom: 2rem;
+  }
+
+  .phase-features { list-style: none; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; }
+
+  .phase-features li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 14px; color: #cbd5e1; line-height: 1.5;
+  }
+
+  .phase-features li::before {
+    content: '→'; color: #60a5fa; flex-shrink: 0; font-weight: bold;
+  }
+
+  /* ── TOPICS ── */
+  .topics-section {
+    max-width: 1300px; margin: 0 auto;
+  }
+
+  .topics-header {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+    align-items: end; margin-bottom: 5rem;
+  }
+
+  .topics-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; /* Expanded gap */
+  }
+
+  .topic-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius-md); padding: 3rem 2.5rem; /* Expanded interior density */
+    transition: var(--transition);
+    position: relative; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(10, 15, 30, 0.01);
+  }
+
+  .topic-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--blue), #a78bfa);
+    transform: scaleX(0); transform-origin: left; transition: var(--transition);
+  }
+
+  .topic-card:hover { 
+    border-color: transparent; 
+    transform: translateY(-5px); 
+    box-shadow: 0 24px 48px rgba(18,73,179,0.06); 
+  }
+  .topic-card:hover::after { transform: scaleX(1); }
+
+  .topic-icon {
+    width: 52px; height: 52px; border-radius: var(--radius-sm);
+    background: var(--blue-light); display: flex; align-items: center;
+    justify-content: center; margin-bottom: 1.75rem;
+  }
+
+  .topic-icon svg { width: 24px; height: 24px; color: var(--blue-mid); }
+
+  .topic-title {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 1rem; line-height: 1.35; letter-spacing: -0.01em;
+  }
+
+  .topic-text { font-size: 14.5px; line-height: 1.7; color: var(--ink-3); }
+
+  /* ── GOALS ── */
+  .goals-grid {
+    max-width: 1300px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem 2.5rem;
+    margin-top: 5rem;
+  }
+
+  .goal-item {
+    padding: 1rem 0 1rem 2rem; border-left: 2px solid rgba(18,73,179,0.1);
+    transition: var(--transition);
+  }
+
+  .goal-item:hover { border-left-color: var(--blue-mid); transform: translateX(4px); }
+
+  .goal-num {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700;
+    color: var(--blue-mid); letter-spacing: 0.05em; margin-bottom: 1rem; text-transform: uppercase;
+  }
+
+  .goal-title {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.75rem; letter-spacing: -0.01em;
+  }
+
+  .goal-text { font-size: 14.5px; line-height: 1.7; color: var(--ink-3); }
+
+  /* ── TEAM ── */
+  .team-grid {
+    max-width: 1300px; margin: 5rem auto 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;
+  }
+
+  .team-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius-md); padding: 2.5rem;
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(10, 15, 30, 0.01);
+  }
+
+  .team-card:hover { box-shadow: 0 20px 40px rgba(18,73,179,0.05); transform: translateY(-4px); border-color: rgba(18,73,179,0.15); }
+
+  .team-avatar {
+    width: 56px; height: 56px; border-radius: var(--radius-sm);
+    background: var(--blue); color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .avatar-david { background: #2563eb; }
+  .avatar-peter { background: var(--teal); }
+  .avatar-stephen-m { background: #8b5cf6; }
+  .avatar-rhoda { background: #db2777; }
+  .avatar-wuraola { background: #d97706; color: white; }
+
+  .team-name {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em;
+  }
+
+  .team-role {
+    font-size: 13px; color: var(--blue-mid); font-weight: 600; margin-bottom: 1.25rem;
+    letter-spacing: 0.02em; text-transform: uppercase;
+  }
+
+  .team-bio { font-size: 14px; line-height: 1.7; color: var(--ink-3); }
+
+  /* ── SPEAKERS ── */
+  #speakers { background: #060a16; padding: 9rem 5rem; color: white; border-top: 1px solid rgba(255,255,255,0.05); }
+  #speakers .section-title { color: white; }
+  #speakers .section-eyebrow { color: #60a5fa; }
+
+  .speakers-header { max-width: 1300px; margin: 0 auto 5rem; }
+
+  .speakers-grid {
+    max-width: 1300px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+  }
+
+  .speaker-card {
+    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+    border-radius: var(--radius-md); padding: 2.5rem 2rem; overflow: hidden; position: relative;
+    transition: var(--transition);
+  }
+
+  .speaker-card:hover { background: rgba(255,255,255,0.04); transform: translateY(-5px); border-color: rgba(255,255,255,0.1); }
+
+  .speaker-initials {
+    width: 60px; height: 60px; border-radius: var(--radius-sm);
+    background: rgba(37, 99, 235, 0.15); color: #93c5fd;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .speaker-badge {
+    display: inline-block; background: rgba(245, 158, 11, 0.1); color: #fbbf24;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px; margin-bottom: 1rem;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .speaker-badge.confirmed { background: rgba(16, 185, 129, 0.1); color: #34d399; border-color: rgba(16, 185, 129, 0.2); }
+
+  .speaker-name {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700;
+    color: white; margin-bottom: 8px; letter-spacing: -0.01em;
+  }
+
+  .speaker-title { font-size: 13.5px; color: #94a3b8; line-height: 1.6; }
+
+  /* ── TIMELINE ── */
+  .timeline-section { max-width: 1300px; margin: 0 auto; }
+
+  .timeline { position: relative; padding-left: 3.5rem; }
+
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 12px; bottom: 12px;
+    width: 2px; background: linear-gradient(to bottom, var(--blue-mid), var(--blue-light), transparent);
+  }
+
+  .timeline-item {
+    position: relative; margin-bottom: 3.5rem;
+    opacity: 0; transform: translateX(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+
+  .timeline-dot {
+    position: absolute; left: -4.05rem; top: 4px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--blue-mid); border: 3px solid var(--white);
+    box-shadow: 0 0 0 4px rgba(26,95,212,0.15);
+  }
+
+  .timeline-date {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700;
+    color: var(--blue-mid); letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .timeline-title {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 8px; letter-spacing: -0.02em;
+  }
+
+  .timeline-desc { font-size: 15px; line-height: 1.7; color: var(--ink-3); max-width: 800px; }
+
+  /* ── MEMBERSHIP ── */
+  .membership-section {
+    max-width: 1300px; margin: 0 auto;
+    display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 6rem; align-items: center;
+  }
+
+  .membership-highlight {
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    border-radius: var(--radius-md); padding: 4.5rem 3.5rem; color: white;
+    position: relative; overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+  }
+
+  .membership-highlight::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 250px; height: 250px;
+    background: rgba(37, 99, 235, 0.15); border-radius: 50%; filter: blur(40px);
+  }
+
+  .membership-highlight .big-number {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 5.5rem; font-weight: 800;
+    line-height: 1; color: white; letter-spacing: -0.04em;
+  }
+
+  .membership-highlight .big-number span { color: #f59e0b; }
+
+  .membership-highlight p { color: #94a3b8; font-size: 15px; line-height: 1.75; margin-top: 1.5rem; }
+
+  .membership-items { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .membership-item {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    padding: 1.75rem; background: var(--white);
+    border: 1px solid var(--border); border-radius: var(--radius-md);
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(10, 15, 30, 0.005);
+  }
+
+  .membership-item:hover { border-color: var(--blue-mid); box-shadow: 0 15px 35px rgba(18,73,179,0.05); transform: translateY(-2px); }
+
+  .membership-item-icon {
+    width: 44px; height: 44px; border-radius: var(--radius-sm); flex-shrink: 0;
+    background: var(--blue-light); display: flex; align-items: center; justify-content: center;
+  }
+
+  .membership-item-icon svg { width: 20px; height: 20px; color: var(--blue-mid); }
+
+  .membership-item-text .title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--ink); font-size: 15px; margin-bottom: 6px; letter-spacing: -0.01em; }
+
+  .membership-item-text .desc { font-size: 14px; color: var(--ink-3); line-height: 1.6; }
+
+  /* ── PARTNERS ── */
+  .partners-section { max-width: 1300px; margin: 0 auto; }
+
+  .partners-logos {
+    display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 3.5rem; align-items: center;
+  }
+
+  .partner-badge {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 1.25rem 2.25rem;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600;
+    color: var(--ink-2); letter-spacing: -0.01em;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+  }
+
+  .partner-badge:hover { border-color: var(--blue-mid); color: var(--blue-mid); box-shadow: 0 10px 25px rgba(18,73,179,0.06); transform: translateY(-2px); }
+
+  /* ── REGISTER CTA ── */
+  #register {
+    background: #040814; padding: 10rem 5rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+
+  #register::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(26,95,212,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,95,212,0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .cta-content { position: relative; z-index: 2; max-width: 740px; margin: 0 auto; }
+
+  .cta-label {
+    display: inline-block; background: rgba(37, 99, 235, 0.15);
+    color: #93c5fd; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 6px 18px; border-radius: 100px;
+    margin-bottom: 2rem; border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .cta-title {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800; color: white; line-height: 1.15; letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-desc { font-size: 1.2rem; color: #94a3b8; margin-bottom: 3rem; line-height: 1.7; }
+
+  .cta-form {
+    display: flex; gap: 14px; max-width: 500px; margin: 0 auto;
+  }
+
+  .cta-input {
+    flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+    color: white; font-size: 15px; padding: 16px 20px; border-radius: var(--radius-sm);
+    outline: none; transition: var(--transition);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .cta-input::placeholder { color: #475569; }
+  .cta-input:focus { border-color: var(--blue-mid); background: rgba(255,255,255,0.07); box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); }
+
+  .cta-form button {
+    background: var(--blue-mid); color: white; border: none;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600;
+    padding: 16px 28px; border-radius: var(--radius-sm); cursor: pointer;
+    white-space: nowrap; transition: var(--transition);
+  }
+
+  .cta-form button:hover {
+    background: #2563eb;
+    box-shadow: 0 10px 25px rgba(26,95,212,0.35);
+  }
+
+  .cta-note { font-size: 13px; color: #475569; margin-top: 1.5rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #02040a; padding: 4rem 5rem;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .footer-inner {
+    max-width: 1300px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .footer-brand {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 500;
+    color: #475569; letter-spacing: -0.01em;
+  }
+
+  .footer-links { display: flex; gap: 2.5rem; }
+
+  .footer-links a {
+    font-size: 13.5px; color: #475569; text-decoration: none;
+    transition: var(--transition); font-weight: 500;
+  }
+
+  .footer-links a:hover { color: #94a3b8; }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2.5rem; right: 2.5rem;
+    background: var(--teal); color: white;
+    font-family: 'Inter', sans-serif; font-size: 14.5px; font-weight: 500;
+    padding: 16px 28px; border-radius: var(--radius-sm);
+    box-shadow: 0 20px 40px rgba(11,139,111,0.25);
+    opacity: 0; transform: translateY(20px);
+    transition: var(--transition);
+    z-index: 999; pointer-events: none;
+  }
+
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE DESIGN ELEVATIONS ── */
+  @media (max-width: 1100px) {
+    .phases-grid, .topics-grid, .team-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .speakers-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 2rem; height: 68px; }
+    .nav-links { display: none; }
+    .section { padding: 6rem 2rem; }
+    #hero { padding: 120px 2rem 80px; }
+    #phases { padding: 6rem 2rem; }
+    #speakers { padding: 6rem 2rem; }
+    #register { padding: 6rem 2rem; }
+    footer { padding: 3rem 2rem; }
+
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { padding: 2.5rem 1.5rem; }
+
+    #about .about-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .phases-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3.5rem; }
+    .phases-grid, .topics-grid, .goals-grid, .team-grid, .speakers-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .topics-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3.5rem; }
+    .membership-section { grid-template-columns: 1fr; gap: 3.5rem; }
+    .footer-inner { flex-direction: column; gap: 2rem; text-align: center; }
+    .cta-form { flex-direction: column; gap: 12px; }
+    .hero-meta { flex-direction: column; gap: 1.25rem; align-items: center; margin-bottom: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <span class="ieee-badge">IEEE</span>
+    East Africa Innovation Synergy
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#phases">Phases</a></li>
+    <li><a href="#topics">Topics</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+  </ul>
+  <a href="#register" class="nav-cta">Register Interest</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      CMU-Africa IEEE CASS Student Branch Chapter · Rwanda 2026
+    </div>
+    <h1 class="hero-title">
+      IEEE East Africa<br>
+      <span class="highlight">Leadership &amp; Innovation</span><br>
+      Synergy
+    </h1>
+    <p class="hero-sub">
+      A multi-phase technical training, professional development, and networking program bridging academic theory and practical hardware engineering across East Africa.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <strong>Kigali, Rwanda</strong> · CMU-Africa Campus
+      </div>
+      <div class="hero-meta-item">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <strong>September – November 2026</strong>
+      </div>
+      <div class="hero-meta-item">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <strong>150+ Participants</strong> Virtual &amp; In-Person
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#register" class="btn-primary">Register Your Interest</a>
+      <a href="#phases" class="btn-ghost">Explore Program</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-number">4<span class="plus">+</span></div>
+      <div class="stat-label">Countries</div>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:0.1s">
+      <div class="stat-number">150<span class="plus">+</span></div>
+      <div class="stat-label">Participants</div>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:0.2s">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Program Phases</div>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:0.3s">
+      <div class="stat-number">30<span class="plus">%</span></div>
+      <div class="stat-label">Membership Growth Target</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-eyebrow">About the Initiative</div>
+      <h2 class="section-title">Bridging Theory &amp; Hardware Engineering</h2>
+      <p class="lead">
+        The IEEE East Africa Leadership & Innovation Synergy is a multi-phase program hosted by the CMU-Africa IEEE CASS Student Branch Chapter and supported by the IEEE Rwanda Subsection.
+      </p>
+      <p>
+        Focusing on embedded systems, microelectronics, Edge AI (TinyML), and industrial automation, the program features structured hardware workshops, professional development bootcamps, and a regional design challenge.
+      </p>
+      <p>
+        Strategically timed to catalyze CASS activity within the newly established Rwanda Subsection, we aim to prepare the next generation of East African engineers to solve localized challenges in smart energy, agritech, and industrial systems.
+      </p>
+      <div class="country-tags">
+        <span class="country-tag">🇷🇼 Rwanda</span>
+        <span class="country-tag">🇰🇪 Kenya</span>
+        <span class="country-tag">🇹🇿 Tanzania</span>
+        <span class="country-tag">🇺🇬 Uganda</span>
+      </div>
+    </div>
+    <div class="about-visual reveal" style="transition-delay: 0.2s">
+      <div class="about-card">
+        <div class="about-card-label">Program Highlights</div>
+        <div class="about-card-title">What Makes This Initiative Unique</div>
+        <ul class="about-card-list">
+          <li>First-of-its-kind cross-border hardware design contest in East Africa</li>
+          <li>Live mentorship from IEEE CASS Distinguished Lecturers</li>
+          <li>Dedicated CASS membership awareness drive across the Rwanda Subsection</li>
+          <li>Industry visits to e-mobility labs, agritech firms, and mini-grid centers</li>
+          <li>Networking dinner connecting student branches with Rwanda Subsection leadership</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section id="phases">
+  <div class="phases-header reveal">
+    <div>
+      <div class="section-eyebrow">Program Structure</div>
+      <h2 class="section-title">Three Progressive Phases</h2>
+    </div>
+    <p class="section-desc">
+      Designed to build momentum from virtual ideation through to in-person prototyping and real-world industry immersion.
+    </p>
+  </div>
+  <div class="phases-grid">
+
+    <div class="phase-card reveal">
+      <div class="phase-number">01</div>
+      <div class="phase-tag">Virtual</div>
+      <div class="phase-title">Virtual Design Contest &amp; Mentorship</div>
+      <p class="phase-desc">
+        Teams across East Africa submit embedded hardware or automation proposals addressing distinct local challenges, supported by structured virtual mentorship sessions.
+      </p>
+      <ul class="phase-features">
+        <li>Cross-border team formation across 4 countries</li>
+        <li>Virtual breakout sessions with IEEE CASS mentors</li>
+        <li>Proposal refinement and design optimization workshops</li>
+        <li>Industry expert guidance sessions</li>
+      </ul>
+    </div>
+
+    <div class="phase-card reveal" style="transition-delay: 0.15s">
+      <div class="phase-number">02</div>
+      <div class="phase-tag">In-Person · CMU-Africa</div>
+      <div class="phase-title">In-Person Finale &amp; Hackathon</div>
+      <p class="phase-desc">
+        A two-day culminating event at CMU-Africa featuring a Distinguished Lecturer keynote, prototype showcase, and an exclusive networking dinner with Subsection leadership.
+      </p>
+      <ul class="phase-features">
+        <li>IEEE CASS Distinguished Lecturer keynote on Edge AI</li>
+        <li>Live prototype showcase &amp; judging panel</li>
+        <li>Cross-section networking dinner with YP executives</li>
+        <li>CASS chapter formalization roadmap session</li>
+      </ul>
+    </div>
+
+    <div class="phase-card reveal" style="transition-delay: 0.3s">
+      <div class="phase-number">03</div>
+      <div class="phase-tag">Industry Immersion</div>
+      <div class="phase-title">Industry Visit &amp; Field Exposure</div>
+      <p class="phase-desc">
+        An industrial tour to leading Kigali facilities providing hands-on exposure to real-world applications of the technologies covered throughout the program.
+      </p>
+      <ul class="phase-features">
+        <li>E-mobility manufacturing labs tour</li>
+        <li>Automated agritech facility visits</li>
+        <li>Mini-grid and smart energy center walkthroughs</li>
+        <li>Direct networking with industry engineers</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section id="topics" class="section section-alt">
+  <div class="topics-section">
+    <div class="topics-header reveal">
+      <div>
+        <div class="section-eyebrow">Technical Focus</div>
+        <h2 class="section-title">Core Technical Topics</h2>
+      </div>
+      <p class="section-desc">
+        Grounded in IEEE CASS priority areas and directly relevant to East Africa's emerging technology landscape.
+      </p>
+    </div>
+    <div class="topics-grid">
+
+      <div class="topic-card reveal">
+        <div class="topic-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
+        </div>
+        <div class="topic-title">AI &amp; Machine Learning for Intelligent Automation</div>
+        <p class="topic-text">Practical implementation of ML models for industrial control, predictive maintenance, and smart process automation adapted to African infrastructure constraints.</p>
+      </div>
+
+      <div class="topic-card reveal" style="transition-delay: 0.1s">
+        <div class="topic-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div class="topic-title">Real-Time Embedded Systems &amp; Control Software</div>
+        <p class="topic-text">Microcontroller architecture, sensor integration, low-power circuit design, PLCs, and real-time operating systems for resource-constrained environments.</p>
+      </div>
+
+      <div class="topic-card reveal" style="transition-delay: 0.2s">
+        <div class="topic-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="topic-title">Simulation &amp; Digital Twins for Automation</div>
+        <p class="topic-text">Virtual modeling and simulation of physical systems using digital twin frameworks — enabling rapid prototyping and testing without costly hardware iterations.</p>
+      </div>
+
+      <div class="topic-card reveal" style="transition-delay: 0.05s">
+        <div class="topic-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="topic-title">Edge AI &amp; TinyML</div>
+        <p class="topic-text">Deploying resource-constrained AI algorithms on physical edge-processing hardware — a key CASS priority with direct applications in African agritech and healthcare.</p>
+      </div>
+
+      <div class="topic-card reveal" style="transition-delay: 0.15s">
+        <div class="topic-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="topic-title">Smart Energy &amp; Agritech Systems</div>
+        <p class="topic-text">Hardware design for mini-grid distribution networks, solar energy monitoring, and precision agriculture IoT devices tailored to East African contexts.</p>
+      </div>
+
+      <div class="topic-card reveal" style="transition-delay: 0.25s">
+        <div class="topic-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+        </div>
+        <div class="topic-title">Professional Development &amp; Career Readiness</div>
+        <p class="topic-text">Portfolio building, CV critiques, mock technical interviews, and IEEE membership grade elevation — preparing engineers for chip design and firmware careers.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section class="section">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="reveal">
+      <div class="section-eyebrow">Program Goals</div>
+      <h2 class="section-title">What We Aim to Achieve</h2>
+    </div>
+    <div class="goals-grid">
+      <div class="goal-item reveal">
+        <div class="goal-num">01 — Expertise</div>
+        <div class="goal-title">Embedded Systems &amp; Automation</div>
+        <p class="goal-text">Hands-on hardware-centric training in microcontroller architecture, sensor integration, low-power circuit design, and programmable logic controllers.</p>
+      </div>
+      <div class="goal-item reveal" style="transition-delay:0.1s">
+        <div class="goal-num">02 — Technology</div>
+        <div class="goal-title">Integrate Edge AI &amp; TinyML</div>
+        <p class="goal-text">Expose attendees to practical implementation of resource-constrained AI running on physical edge-processing hardware, aligned with CASS technical priorities.</p>
+      </div>
+      <div class="goal-item reveal" style="transition-delay:0.2s">
+        <div class="goal-num">03 — Careers</div>
+        <div class="goal-title">Accelerate Professional Development</div>
+        <p class="goal-text">Prepare engineering students for careers in chip design, embedded firmware, and industrial automation through portfolio-building and mock technical interviews.</p>
+      </div>
+      <div class="goal-item reveal" style="transition-delay:0.05s">
+        <div class="goal-num">04 — Network</div>
+        <div class="goal-title">Build Subsection Leadership Networks</div>
+        <p class="goal-text">Cultivate deep linkages among IEEE student branches, young professionals, and industry experts in Rwanda to ensure long-term CASS sustainability.</p>
+      </div>
+      <div class="goal-item reveal" style="transition-delay:0.15s">
+        <div class="goal-num">05 — Membership</div>
+        <div class="goal-title">Drive CASS Membership Growth</div>
+        <p class="goal-text">Induct at least 20 new members into IEEE CASS and facilitate student-to-professional grade transitions through a dedicated membership campaign — targeting 30% growth.</p>
+      </div>
+      <div class="goal-item reveal" style="transition-delay:0.25s">
+        <div class="goal-num">06 — Impact</div>
+        <div class="goal-title">Enable Practical Problem Solving</div>
+        <p class="goal-text">Host a hardware prototyping hackathon addressing automated agritech, smart energy distribution, and IoT-enabled healthcare devices tailored to Africa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="section section-alt">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="reveal">
+      <div class="section-eyebrow">Organizing Committee</div>
+      <h2 class="section-title">The Team Behind the Initiative</h2>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card reveal">
+        <div class="team-avatar">JS</div>
+        <div class="team-name">Jonathan Simenya</div>
+        <div class="team-role">RAS Chapter Chair, IEEE CMU-Africa</div>
+        <p class="team-bio">Served as double chair for TechX, impacting 2,500+ young professionals across 10 IEEE regions. Recipient of the Diversity &amp; Inclusion Award and Mentorship Award from CS in 2025.</p>
+      </div>
+
+      <div class="team-card reveal" style="transition-delay:0.1s">
+        <div class="team-avatar avatar-david">DS</div>
+        <div class="team-name">David Stephen</div>
+        <div class="team-role">RAS Vice Chair · Africa Innovators Society President</div>
+        <p class="team-bio">Led multiple industry hackathons including the Harvard Health Hackathon and IEEE Africa Entrepreneurship Hackathon, bringing together 500+ participants across Africa.</p>
+      </div>
+
+      <div class="team-card reveal" style="transition-delay:0.2s">
+        <div class="team-avatar avatar-peter">PA</div>
+        <div class="team-name">Peter Adeyemo</div>
+        <div class="team-role">Secretary, IEEE CMU-Africa</div>
+        <p class="team-bio">Organized the Rwanda Simulation Synergy and Securing the Grid workshop in collaboration with 7+ industry partners including Ansys, Trlspace, and Ampersand.</p>
+      </div>
+
+      <div class="team-card reveal" style="transition-delay:0.05s">
+        <div class="team-avatar avatar-stephen-m">SM</div>
+        <div class="team-name">Stephen Mbarushimana</div>
+        <div class="team-role">Student Branch Chair, University of Rwanda</div>
+        <p class="team-bio">Expert in cross-branch collaboration, having held workshops in partnership with several student branches for broad regional impact across East Africa.</p>
+      </div>
+
+      <div class="team-card reveal" style="transition-delay:0.15s">
+        <div class="team-avatar avatar-rhoda">RO</div>
+        <div class="team-name">Rhoda Ojetola</div>
+        <div class="team-role">Vice Chair, IEEE CMU-Africa · Vice Chair, IEEE WIE</div>
+        <p class="team-bio">Proven strength in coordination and large-scale event execution, bringing WIE leadership perspective to ensure inclusive participation throughout the program.</p>
+      </div>
+
+      <div class="team-card reveal" style="transition-delay:0.25s">
+        <div class="team-avatar avatar-wuraola">WA</div>
+        <div class="team-name">Wuraola Akinade</div>
+        <div class="team-role">President, Women in Tech Club, CMU-Africa</div>
+        <p class="team-bio">Organized International Women's Day, GDG Rwanda, Women Techmakers Kigali, and school outreach — impacting 200+ young women in Kigali and beyond.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKERS -->
+<section id="speakers">
+  <div class="speakers-header reveal">
+    <div class="section-eyebrow">Confirmed Speakers</div>
+    <h2 class="section-title">World-Class Voices</h2>
+    <p style="color: #94a3b8; font-size: 1.15rem; line-height: 1.7; max-width: 600px; margin-top: 0.5rem;">
+      Featuring two IEEE Distinguished Lecturers, two internationally renowned professors, and five industry experts across hardware engineering and communications technology.
+    </p>
+  </div>
+  <div class="speakers-grid">
+
+    <div class="speaker-card reveal">
+      <div class="speaker-initials">JB</div>
+      <div class="speaker-badge confirmed">✓ Confirmed</div>
+      <div class="speaker-name">Prof. Joao Barros</div>
+      <div class="speaker-title">IEEE Fellow · Communications &amp; Networked Systems Expert</div>
+    </div>
+
+    <div class="speaker-card reveal" style="transition-delay:0.1s">
+      <div class="speaker-initials">JT</div>
+      <div class="speaker-badge confirmed">✓ Confirmed</div>
+      <div class="speaker-name">Prof. Jesse Thornburg</div>
+      <div class="speaker-title">Engineering Education &amp; Embedded Systems Research</div>
+    </div>
+
+    <div class="speaker-card reveal" style="transition-delay:0.2s">
+      <div class="speaker-initials">RC</div>
+      <div class="speaker-badge">IEEE ComSoc DL</div>
+      <div class="speaker-name">Roberto Calandra</div>
+      <div class="speaker-title">IEEE ComSoc Distinguished Lecturer · AI &amp; Robotics</div>
+    </div>
+
+    <div class="speaker-card reveal" style="transition-delay:0.3s">
+      <div class="speaker-initials">MF</div>
+      <div class="speaker-badge">IEEE CASS DL</div>
+      <div class="speaker-name">Maria Pia Fanti</div>
+      <div class="speaker-title">IEEE CASS Distinguished Lecturer · Industrial Automation</div>
+    </div>
+
+  </div>
+  <p style="max-width: 1200px; margin: 3rem auto 0; color: #475569; font-size: 14px;">
+    + Five industry experts (mentors) to be confirmed from the East African technology and manufacturing sectors.
+  </p>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="section section-alt">
+  <div class="timeline-section">
+    <div class="reveal" style="margin-bottom: 5rem;">
+      <div class="section-eyebrow">Event Schedule</div>
+      <h2 class="section-title">Program Timeline</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">September 3, 2026</div>
+        <div class="timeline-title">Info Session &amp; Team Formation</div>
+        <p class="timeline-desc">Orientation session for all participants across Rwanda, Kenya, Tanzania, and Uganda. Teams form, problem statements are released, and the contest officially launches.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">September 10, 17 &amp; 24, 2026</div>
+        <div class="timeline-title">Virtual Workshops &amp; Project Development</div>
+        <p class="timeline-desc">Three weekly virtual workshop sessions covering embedded systems, Edge AI, and digital twin fundamentals. Teams receive mentorship from IEEE CASS experts to refine their proposals.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Mid-November, 2026</div>
+        <div class="timeline-title">In-Person Finale &amp; Project Pitching</div>
+        <p class="timeline-desc">Two-day culminating event at CMU-Africa. Distinguished Lecturer keynote, live prototype showcase, panel judging, and exclusive networking dinner with Rwanda Subsection and YP leadership.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Post-Finale</div>
+        <div class="timeline-title">Industry Visit</div>
+        <p class="timeline-desc">Guided tours to leading industrial facilities in Kigali including e-mobility labs, automated agritech firms, and mini-grid energy centers — fully sponsored by Carnegie Mellon University Africa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="section">
+  <div class="membership-section">
+    <div class="membership-highlight reveal">
+      <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem;">CASS Membership Impact</div>
+      <div class="big-number">30<span>%</span></div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700; color: rgba(255,255,255,0.9); margin-top: 0.75rem; letter-spacing: -0.01em;">Projected Membership Growth</div>
+      <p>We aim to induct at least 20 new IEEE CASS members and facilitate student-to-professional grade transitions, catalyzing CASS growth within the newly established Rwanda Subsection.</p>
+    </div>
+    <div class="membership-items reveal" style="transition-delay: 0.2s">
+      <div class="membership-item">
+        <div class="membership-item-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="membership-item-text">
+          <div class="title">Dedicated Membership Awareness Drive</div>
+          <div class="desc">First-ever CASS membership campaign across the East Africa Rwanda Subsection, targeting Student, Graduate, and Young Professional grades.</div>
+        </div>
+      </div>
+      <div class="membership-item">
+        <div class="membership-item-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="membership-item-text">
+          <div class="title">Student-to-Professional Grade Transitions</div>
+          <div class="desc">Guided IEEE grade elevation sessions help participants transition from Student Member to Graduate Student Member and beyond.</div>
+        </div>
+      </div>
+      <div class="membership-item">
+        <div class="membership-item-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="membership-item-text">
+          <div class="title">Long-Term Chapter Formalization</div>
+          <div class="desc">The networking dinner creates a roadmap for formalizing the CASS Student Branch Chapter in Rwanda, ensuring lasting regional impact beyond this initiative.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="section section-alt">
+  <div class="partners-section">
+    <div class="reveal">
+      <div class="section-eyebrow">Supported By</div>
+      <h2 class="section-title">Partner Organizations</h2>
+    </div>
+    <div class="partners-logos reveal" style="transition-delay: 0.2s">
+      <div class="partner-badge">IEEE CASS</div>
+      <div class="partner-badge">IEEE Rwanda Subsection</div>
+      <div class="partner-badge">CMU-Africa</div>
+      <div class="partner-badge">University of Rwanda</div>
+      <div class="partner-badge">IEEE WIE</div>
+      <div class="partner-badge">IEEE Young Professionals</div>
+      <div class="partner-badge">IEEE Region 8</div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section id="register">
+  <div class="cta-content reveal">
+    <div class="cta-label">Open for Registration</div>
+    <h2 class="cta-title">Join the Movement.<br>Shape East Africa's Future.</h2>
+    <p class="cta-desc">Be part of a historic cross-border initiative uniting the brightest engineering minds across Rwanda, Kenya, Tanzania, and Uganda.</p>
+    <div class="cta-form">
+      <input class="cta-input" type="email" id="emailInput" placeholder="Enter your email address">
+      <button onclick="handleRegister()">Register →</button>
+    </div>
+    <p class="cta-note">For students, Young Professionals, and faculty. IEEE membership not required to express interest.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">IEEE East Africa Innovation &amp; Leadership Synergy · Kigali 2026</div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#phases">Phases</a>
+      <a href="#team">Team</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#register">Register</a>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ You're on the list! We'll be in touch soon.</div>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal, .stat-item, .timeline-item').forEach(el => {
+    observer.observe(el);
+  });
+
+  function handleRegister() {
+    const email = document.getElementById('emailInput').value.trim();
+    if (!email || !email.includes('@')) {
+      document.getElementById('emailInput').style.borderColor = 'rgba(232,76,61,0.6)';
+      setTimeout(() => document.getElementById('emailInput').style.borderColor = '', 1500);
+      return;
+    }
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    document.getElementById('emailInput').value = '';
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+
+  document.getElementById('emailInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleRegister();
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

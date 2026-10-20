@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --brand: #C8102E;
-    --brand-dark: #8C0D23;
-    --accent-gold: #D4A017;
+    --brand: #00629B;
+    --brand-dark: #002855;
+    --accent-gold: #FFC72C;
   }
 
   html {

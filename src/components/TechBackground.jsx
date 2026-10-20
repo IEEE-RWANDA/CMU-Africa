@@ -7,7 +7,7 @@ const TRACES = [
     { d: 'M0 260 H30 L60 230 V80', node: [60, 80], delay: '4.2s' },
 ];
 
-const Traces = ({ className = '' }) => (
+const Traces = ({ className = '', isDark }) => (
     <svg
         viewBox="0 0 300 600"
         preserveAspectRatio="xMinYMid meet"
@@ -16,16 +16,16 @@ const Traces = ({ className = '' }) => (
     >
         {TRACES.map(({ d, node, delay }) => (
             <g key={d}>
-                <path d={d} className="stroke-brand/20" strokeWidth="1.5" />
-                <path d={d} pathLength="100" className="trace-pulse stroke-brand" strokeWidth="2" strokeLinecap="round" style={{ animationDelay: delay }} />
-                <circle cx={node[0]} cy={node[1]} r="4" className="trace-node fill-brand" style={{ animationDelay: delay }} />
+                <path d={d} className={isDark ? 'stroke-brand-light/25' : 'stroke-brand/20'} strokeWidth="1.5" />
+                <path d={d} pathLength="100" className={`trace-pulse ${isDark ? 'stroke-brand-light' : 'stroke-brand'}`} strokeWidth="2" strokeLinecap="round" style={{ animationDelay: delay }} />
+                <circle cx={node[0]} cy={node[1]} r="4" className={`trace-node ${isDark ? 'fill-brand-light' : 'fill-brand'}`} style={{ animationDelay: delay }} />
             </g>
         ))}
     </svg>
 );
 
 const TechBackground = ({ isDark }) => {
-    const line = isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(200, 16, 46, 0.08)';
+    const line = isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 98, 155, 0.08)';
     const mask = 'radial-gradient(ellipse at center, black 25%, transparent 75%)';
 
     return (
@@ -40,8 +40,8 @@ const TechBackground = ({ isDark }) => {
                     maskImage: mask,
                 }}
             />
-            <Traces className="left-0" />
-            <Traces className="right-0 -scale-x-100" />
+            <Traces isDark={isDark} className="left-0" />
+            <Traces isDark={isDark} className="right-0 -scale-x-100" />
         </div>
     );
 };

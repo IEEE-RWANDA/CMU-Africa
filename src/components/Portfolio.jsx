@@ -24,14 +24,14 @@ const Portfolio = ({ theme }) => {
             <FadeIn>
                 <SectionHeading title="SB Overview" subtitle="Technical · Social · STEM" />
 
-                <div role="tablist" aria-label="Activity categories" className="flex flex-nowrap justify-center gap-4 md:gap-8 mb-12 overflow-x-auto">
+                <div role="tablist" aria-label="Activity categories" className="flex flex-nowrap justify-center gap-4 md:gap-8 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     {ACTIVITY_TABS.map((tab) => (
                         <button
                             key={tab.key}
                             role="tab"
                             aria-selected={activeTab === tab.key}
                             onClick={() => setActiveTab(tab.key)}
-                            className={`text-sm uppercase tracking-widest px-5 py-3 rounded-full transition-all duration-300 border whitespace-nowrap ${activeTab === tab.key ? `border-brand bg-brand/10 ${theme.accent}` : `border-transparent ${theme.textMuted} hover:border-brand ${theme.accentHover}`}`}
+                            className={`text-sm uppercase tracking-widest px-5 py-3 rounded-full transition-all duration-300 border whitespace-nowrap ${activeTab === tab.key ? theme.tabActive : theme.tabIdle}`}
                         >
                             {tab.label}
                         </button>
@@ -42,14 +42,14 @@ const Portfolio = ({ theme }) => {
                     {items.map((item, idx) => (
                         <div key={item.id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.4rem)] flex">
                             <FadeIn delay={idx * 100} className="h-full w-full">
-                                <div className="group h-full rounded-[32px] overflow-hidden border border-white/10 bg-[#140d0e] shadow-[0_30px_60px_rgba(140,13,35,0.10)] transition-transform duration-500 hover:-translate-y-1">
+                                <div className="group h-full rounded-[32px] overflow-hidden border border-white/10 bg-[#052a5e] shadow-[0_30px_60px_rgba(0,40,85,0.10)] transition-transform duration-500 hover:-translate-y-1">
                                     <div className="overflow-hidden h-72">
                                         <img src={item.image} alt={item.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                                     </div>
                                     <div className="p-8">
                                         <span className="inline-flex items-center px-3 py-1 rounded-full bg-brand/15 text-brand-light text-xs uppercase tracking-[0.35em] font-semibold">{ACTIVITY_CATEGORIES[item.category]}</span>
                                         <h3 className="mt-6 text-2xl font-display font-black text-white">{item.title}</h3>
-                                        <p className="mt-4 text-sm leading-7 text-[#a8a2a3]">{item.description}</p>
+                                        <p className="mt-4 text-sm leading-7 text-[#a9bdd6]">{item.description}</p>
                                     </div>
                                 </div>
                             </FadeIn>

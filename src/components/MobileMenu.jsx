@@ -11,7 +11,7 @@ const socialIcons = {
 
 const MobileMenu = ({ isMenuOpen, setIsMenuOpen, isDark, setIsDark }) => {
     return (
-        <div className={`fixed inset-0 md:hidden bg-[#0a0a0a] z-40 flex flex-col justify-center items-center gap-8 transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className={`fixed inset-0 md:hidden bg-[#021a40] z-40 flex flex-col justify-center items-center gap-8 transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
             {NAV_LINKS.map((item) => (
                 <a
                     key={item.id}

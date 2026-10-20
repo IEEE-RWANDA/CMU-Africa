@@ -18,7 +18,7 @@ const Contact = ({ theme }) => {
     return (
         <section id="engage" className="py-24 px-6 md:px-12 container mx-auto">
             <FadeIn>
-                <div className={`max-w-5xl mx-auto rounded-[40px] border ${theme.border} ${theme.cardBg} p-8 md:p-12 shadow-[0_40px_80px_rgba(140,13,35,0.12)]`}>
+                <div className={`max-w-5xl mx-auto rounded-[40px] border ${theme.border} ${theme.cardBg} p-8 md:p-12 shadow-[0_40px_80px_rgba(0,40,85,0.12)]`}>
                     <SectionHeading title="Engage" subtitle="Join the movement" />
 
                     <div className="grid gap-12 lg:grid-cols-2">
@@ -72,7 +72,7 @@ const Contact = ({ theme }) => {
                                 </select>
                             </div>
 
-                            <button className="w-full py-4 bg-brand text-white font-bold uppercase tracking-widest hover:bg-brand-dark transition-all duration-300 flex items-center justify-center gap-3">
+                            <button className="w-full py-4 bg-gold text-[#0a1f3d] font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 flex items-center justify-center gap-3">
                                 Volunteer with us <Icons.Send size={16} />
                             </button>
 

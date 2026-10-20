@@ -41,15 +41,17 @@ const Navbar = ({ isDark, isMenuOpen, setIsMenuOpen, theme }) => {
             <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
                 {/* Logo: drop the final logo at src/assets/logo/sb-logo.png */}
                 <a href="#home" className="flex items-center gap-2 group cursor-pointer">
-                    <img
-                        src={sbLogo}
-                        alt="IEEE CMU-Africa Student Branch"
-                        className={`h-9 md:h-11 w-auto max-w-[62vw] object-contain ${isDark || isMenuOpen ? 'brightness-0 invert' : ''}`}
-                    />
+                    <span className={`flex items-center rounded-xl ${isDark || isMenuOpen ? 'bg-white px-3 py-1.5 shadow-lg shadow-black/20' : ''}`}>
+                        <img
+                            src={sbLogo}
+                            alt="IEEE CMU-Africa Student Branch"
+                            className="h-8 md:h-9 lg:h-10 w-auto max-w-[56vw] object-contain"
+                        />
+                    </span>
                 </a>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex items-center gap-8 lg:gap-10 font-medium text-sm tracking-widest uppercase">
+                <div className="hidden md:flex items-center gap-5 lg:gap-10 font-medium text-sm tracking-widest uppercase">
                     {NAV_LINKS.map((item) => {
                         const isActive = activeSection === item.id;
                         const target = item.target ?? item.id;
@@ -58,10 +60,10 @@ const Navbar = ({ isDark, isMenuOpen, setIsMenuOpen, theme }) => {
                                 key={item.id}
                                 href={`#${target}`}
                                 onClick={() => item.tab && selectActivityTab(item.tab)}
-                                className={`relative overflow-hidden group ${theme.accentHover} transition-colors duration-300 ${isActive ? theme.accent : ''}`}
+                                className={`relative overflow-hidden group ${theme.navHover} transition-colors duration-300 ${isActive ? theme.navActive : ''}`}
                             >
                                 {item.label}
-                                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-brand transform transition-transform duration-300 ${isActive ? 'translate-x-0' : '-translate-x-full group-hover:translate-x-0'}`}></span>
+                                <span className={`absolute bottom-0 left-0 w-full h-0.5 ${theme.navBar} transform transition-transform duration-300 ${isActive ? 'translate-x-0' : '-translate-x-full group-hover:translate-x-0'}`}></span>
                             </a>
                         );
                     })}

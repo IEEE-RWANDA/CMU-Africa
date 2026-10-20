@@ -31,7 +31,7 @@ const Collections = ({ isDark }) => {
     const { theme } = useTheme();
 
     return (
-        <section id="topics" className={`py-24 px-4 md:px-6 ${isDark ? 'bg-[#100c0d]' : 'bg-[#f6f1ef]'}`}>
+        <section id="topics" className={`py-24 px-4 md:px-6 ${isDark ? 'bg-[#02142f]' : 'bg-[#e6eef8]'}`}>
             <div className="w-full max-w-6xl mx-auto">
                 <div className="mb-8">
                     <SectionHeading title="What We Cover" subtitle="Grooming Africa's future leaders" />
@@ -40,7 +40,7 @@ const Collections = ({ isDark }) => {
                 <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {FOCUS_AREAS.map((t, idx) => (
                         <FadeIn key={t.id} delay={idx * 80}>
-                            <div className={`topic-card h-full p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 ${isDark ? 'bg-[#151011]/60 border border-white/10' : 'bg-white/70 border border-gray-200'}`}>
+                            <div className={`topic-card h-full p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 ${isDark ? 'bg-[#06285a]/60 border border-white/10' : 'bg-white/70 border border-gray-200'}`}>
                                 <div className={`topic-icon mb-4 ${isDark ? 'text-gold' : 'text-brand'}`}>{ICONS[t.icon]}</div>
                                 <div className={`font-semibold text-lg mb-2 ${theme.text}`}>{t.title}</div>
                                 <p className={`${theme.textMuted} text-sm leading-6`}>{t.text}</p>

@@ -13,9 +13,9 @@ const Layout = ({ children }) => {
     // Custom scrollbar; injected as raw CSS so quotes/symbols survive server rendering
     const scrollbarCss = `
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: ${isDark ? '#0c0a0b' : '#faf8f8'}; }
-        ::-webkit-scrollbar-thumb { background: #C8102E; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #8C0D23; }
+        ::-webkit-scrollbar-track { background: ${isDark ? '#031a40' : '#f4f8fc'}; }
+        ::-webkit-scrollbar-thumb { background: #00629B; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #002855; }
     `;
 
     return (

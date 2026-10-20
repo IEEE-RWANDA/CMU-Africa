@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IEEE East Africa Timeline - Synergy & Innovation</title>
+  
+  <!-- Premium brand font integrations -->
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,600,700" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Tailwind CSS for overall layout wrapper styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Core global setups to match premium custom branding */
+    :root {
+      --primary-teal: #0F4C43;
+      --medium-teal: #237A6D;
+      --accent-copper: #A36F46;
+      --accent-gold: #D1AA7A;
+      --bg-cream: #F7F5EE;
+      --text-dark: #1C2120;
+      --border-gray: #D6DCE0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background-color: var(--bg-cream);
+      font-family: 'Titillium Web', sans-serif;
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Strict implementation of user CSS adapted with customized brand colors */
+    .timeline {
+      list-style-type: none;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0;
+      margin: 40px auto;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .li {
+      transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .timestamp {
+      margin-bottom: 24px;
+      padding: 0px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 300ms ease;
+    }
+
+    .timestamp .author {
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary-teal);
+    }
+
+    .timestamp .date {
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--accent-copper);
+      margin-top: 4px;
+      background-color: rgba(163, 111, 70, 0.08);
+      padding: 2px 8px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    .status {
+      padding: 24px 20px 0px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      border-top: 3px solid var(--border-gray);
+      position: relative;
+      transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      width: 100%;
+      text-align: center;
+    }
+
+    .status h4 {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--primary-teal);
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+      transition: color 300ms ease;
+    }
+
+    .status p {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #555c5a;
+      max-width: 200px;
+      margin: 0;
+    }
+
+    /* The interactive stepping connector dots */
+    .status:before {
+      content: '';
+      width: 22px;
+      height: 22px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      border: 3px solid var(--border-gray);
+      position: absolute;
+      top: -12.5px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 5;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Complete State Styles adapting Green to Brand Teal/Gold Theme */
+    .li.complete .status {
+      border-top-color: var(--medium-teal);
+    }
+
+    .li.complete .status:before {
+      background-color: var(--medium-teal);
+      border-color: var(--medium-teal);
+      box-shadow: 0 0 0 4px rgba(35, 122, 109, 0.2);
+    }
+
+    .li.complete .status h4 {
+      color: var(--primary-teal);
+    }
+
+    .li.complete .timestamp .author {
+      color: var(--accent-copper);
+    }
+
+    /* Hover effects for interactive premium design */
+    .li:hover .status:before {
+      transform: translateX(-50%) scale(1.2);
+    }
+
+    /* Mobile Layout transformation using media query provided */
+    @media (max-width: 768px) {
+      .timeline {
+        list-style-type: none;
+        display: block;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 20px auto;
+      }
+      
+      .li {
+        transition: all 300ms ease-in;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .timestamp {
+        width: 110px;
+        min-width: 110px;
+        margin-bottom: 0;
+        padding: 0;
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .timestamp .author {
+        font-size: 12px;
+      }
+
+      .status {
+        flex: 1;
+        padding: 0 0 10px 24px;
+        align-items: flex-start;
+        text-align: left;
+        border-top: none;
+        border-left: 3px solid var(--border-gray);
+      }
+
+      .status h4 {
+        margin-top: -4px;
+      }
+
+      .status p {
+        max-width: 100%;
+      }
+
+      .status:before {
+        left: -1.5px;
+        top: 0;
+        transform: translate(-50%, 0);
+      }
+
+      .li.complete .status {
+        border-top-color: transparent;
+        border-left-color: var(--medium-teal);
+      }
+      
+      .li:hover .status:before {
+        transform: translate(-50%, 0) scale(1.2);
+      }
+    }
+
+    /* Control Button Custom Styles */
+    #toggleButton {
+      background-color: var(--accent-copper);
+      border-radius: 8px;
+      transition: all 300ms cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 0 4px 10px rgba(163, 111, 70, 0.25);
+    }
+
+    #toggleButton:hover {
+      background-color: var(--primary-teal);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(15, 76, 67, 0.3);
+    }
+
+    #toggleButton:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+  <!-- Main Container Wrapper -->
+  <div class="w-full max-w-6xl mx-auto flex flex-col items-center">
+    
+
+    <!-- The Event Timeline Component -->
+    <ul class="timeline mt-4" id="timeline">
+      
+      <!-- Day 1 Segment -->
+      <li class="li complete">
+        <div class="timestamp">
+          <span class="author">Pre-workshop Series</span>
+          <span class="date"><i class="fa-regular fa-clock mr-1"></i> LATE AUGUST</span>
+        </div>
+        <div class="status">
+          <h4>WEEK 1-3</h4>
+          <p>Kickoff with leadership opening remarks, orientation, and high-level strategy mapping.</p>
+        </div>
+      </li>
+      
+      <!-- Day 2 Segment -->
+      <li class="li complete">
+        <div class="timestamp">
+          <span class="author">FINALE</span>
+          <span class="date"><i class="fa-regular fa-clock mr-1"></i>MID SEPTEMBER</span>
+        </div>
+        <div class="status">
+          <h4>DAY 1</h4>
+          <p> Keynote addresses, panel discussions, and Rapid mentoring sessions.</p>
+        </div>
+      </li>
+      
+      <!-- Day 3 Segment -->
+      <li class="li complete">
+        <div class="timestamp">
+          <span class="author">FINALE</span>
+          <span class="date"><i class="fa-regular fa-clock mr-1"></i> MID SEPTEMBER</span>
+        </div>
+        <div class="status">
+          <h4>DAY 2</h4>
+          <p>Hackathon, Projects Showcase, Awards Ceremonyand Networking Dinner.</p>
+        </div>
+      </li>
+      
+      <!-- Day 4 Segment -->
+      <li class="li">
+        <div class="timestamp">
+          <span class="author">INDUSTRY VISIT</span>
+          <span class="date"><i class="fa-regular fa-clock mr-1"></i> NOVEMBER</span>
+        </div>
+        <div class="status">
+          <h4>Finale &amp; Project Demos</h4>
+          <p>Curated tech site visits, , and regional award gala.</p>
+        </div>
+      </li>
+      
+    </ul>
+
+   
+
+  </div>
+
+  <!-- Timeline Interactive Controller Scripts -->
+  <script>
+    // Document Elements Selection
+    const timelineItems = document.querySelectorAll(".li");
+    const toggleButton = document.getElementById("toggleButton");
+    const progressIndicator = document.getElementById("progressIndicator");
+
+    // Live state tracking
+    let state = [true, true, true, false]; // Corresponds to the baseline "complete" markup pattern
+
+    function updateDOMState() {
+      let completeCount = 0;
+      
+      timelineItems.forEach((li, index) => {
+        if (state[index]) {
+          li.classList.add('complete');
+          completeCount++;
+        } else {
+          li.classList.remove('complete');
+        }
+      });
+
+      // Update indicator stats dynamically
+      progressIndicator.textContent = `${completeCount} / ${timelineItems.length} Milestones Active`;
+    }
+
+    function handleToggleProgress() {
+      // Find current completed array index from right to left to perform progressive sequential step changes
+      // This enhances the simple "classList.toggle" with smart sequential stepping controls!
+      const firstIncompleteIndex = state.findIndex(val => val === false);
+      
+      if (firstIncompleteIndex === -1) {
+        // All completed, roll everything back to step 1
+        state = [true, false, false, false];
+      } else {
+        // Progress to next milestone step
+        state[firstIncompleteIndex] = true;
+      }
+      
+      updateDOMState();
+    }
+
+    // Assign dynamic toggle trigger
+    toggleButton.onclick = handleToggleProgress;
+
+    // Support interactive individual clicks on milestones to toggle individual active status manually
+    timelineItems.forEach((item, index) => {
+      item.style.cursor = "pointer";
+      item.addEventListener("click", () => {
+        state[index] = !state[index];
+        updateDOMState();
+      });
+    });
+
+    // Initialize state mapping on DOM Load
+    updateDOMState();
+  </script>
+</body>
+</html>

@@ -38,7 +38,9 @@ const Navbar = ({ isDark, isMenuOpen, setIsMenuOpen, theme }) => {
         };
     }, []);
 
-    const isHome = location.pathname === '/';
+    // The site may be served from a sub-path (e.g. GitHub Pages), so only treat
+    // the journal page as "not home"; on home, plain #anchors work anywhere.
+    const isHome = !location.pathname.includes('/journal/');
 
     return (
         <nav className={`fixed w-full z-50 transition-all duration-300 ${scrollProgress > 0.05 && !isMenuOpen ? `${theme.navBg} backdrop-blur-md border-b ${theme.border}` : 'bg-transparent'} py-4`}>

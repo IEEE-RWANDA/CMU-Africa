@@ -1,6 +1,6 @@
 # IEEE CMU-Africa website
 
-React + Vite + Tailwind site for the IEEE CS SBC CMU-Africa student branch.
+React + Vite + Tailwind site for the IEEE CMU-Africa student branch.
 
 ## Local development
 

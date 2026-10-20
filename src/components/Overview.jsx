@@ -26,7 +26,7 @@ const Overview = () => {
                                 Carnegie Mellon University Africa (CMU-Africa), a college of Carnegie Mellon University based in Kigali, Rwanda, brings together students and faculty from over 22 nationalities across Africa. It delivers a world-class education tailored to African priorities, with an emphasis on applied research, industry collaboration, and entrepreneurship to develop technology leaders and scalable solutions for the continent.
                             </p>
                             <p className={`max-w-3xl text-lg leading-8 ${theme.textMuted}`}>
-                                IEEE CS SBC CMU-Africa is committed to fostering a vibrant community of innovation, collaboration, and technological excellence in Rwanda and across Africa. Our goal is to equip students and young professionals with cutting-edge skills in computing, cybersecurity, data science, and leadership, empowering them to solve real problems in their communities. Our chapter is rapidly growing and has become a hub for IEEE engagement, learning, and impact at CMU-Africa and beyond.
+                                IEEE CMU-Africa is committed to fostering a vibrant community of innovation, collaboration, and technological excellence in Rwanda and across Africa. Our goal is to equip students and young professionals with cutting-edge skills in computing, cybersecurity, data science, and leadership, empowering them to solve real problems in their communities. Our chapter is rapidly growing and has become a hub for IEEE engagement, learning, and impact at CMU-Africa and beyond.
                             </p>
                         </div>
                     </FadeIn>

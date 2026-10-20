@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Content for the IEEE CS SBC CMU-Africa student branch site.
+// Content for the IEEE CMU-Africa student branch site.
 // Edit the arrays below to update the site; components only render this data.
 // ---------------------------------------------------------------------------
 

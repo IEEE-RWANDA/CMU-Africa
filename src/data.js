@@ -92,6 +92,7 @@ export const ACTIVITY_CATEGORIES = {
     technical: 'Technical',
     social: 'Social',
     stem: 'STEM',
+    outreach: 'Outreach',
 };
 
 export const ACTIVITY_ITEMS = [
@@ -126,7 +127,7 @@ export const ACTIVITY_ITEMS = [
         category: 'social',
         title: 'Meet & Greet',
         description: 'Welcome sessions that bring IEEE members and newcomers together to build a close community from day one.',
-        image: imgRegistration,
+        image: imgBannerChat,
     },
     {
         id: 5,
@@ -139,9 +140,9 @@ export const ACTIVITY_ITEMS = [
     {
         id: 6,
         tab: 'events',
-        category: 'stem',
-        title: 'High School Computer Training',
-        description: 'Computer training programs for high school students across Rwanda, opening the door to a future in technology.',
+        category: 'outreach',
+        title: 'Membership Drive',
+        description: 'A drive at AUCA that raised awareness about IEEE and the benefits of becoming a member.',
         image: imgComputerTraining,
     },
 

@@ -6,7 +6,7 @@ import FadeIn from './FadeIn';
 const LinkedInFeed = () => {
     return (
         <section id="linkedin" className="py-24 px-6 md:px-12 container mx-auto">
-            <SectionHeading title="From LinkedIn" subtitle="Latest from our page" />
+            <SectionHeading title="Latest Updates" subtitle="CMU Africa LinkedIn Feed" />
 
             <FadeIn>
                 <div className="max-w-5xl mx-auto overflow-hidden rounded-[28px] bg-white shadow-[0_30px_70px_rgba(0,40,85,0.12)]">

@@ -53,6 +53,13 @@ import imgZipline from './assets/gallery/38-zipline-muhanga-visit.jpg';
 import imgEnergyLecture from './assets/gallery/39-energy-systems-lecture.jpg';
 import imgLunchAerial from './assets/gallery/40-lunch-table-aerial.jpg';
 import imgLeadershipWinners from './assets/gallery/41-synergy-leadership-winners.jpg';
+import imgMarkInStem from './assets/gallery/42-make-your-mark-in-stem-group.jpg';
+import imgStemSpeakers from './assets/gallery/43-stem-forum-speakers.jpg';
+import imgMttsPanel from './assets/gallery/44-mtts-industry-panel.jpg';
+import imgMttsGroup from './assets/gallery/45-mtts-workshop-group-steps.jpg';
+import imgMentoringCircle from './assets/gallery/46-mentoring-circle.jpg';
+import imgWorkshopAudience from './assets/gallery/47-workshop-audience.jpg';
+import imgRegistrationVolunteers from './assets/gallery/48-registration-volunteers.jpg';
 
 // --- Navigation -------------------------------------------------------------
 // `id` is the section id (and scroll-spy key). `tab` makes the link open that
@@ -385,4 +392,11 @@ export const GALLERY_IMAGES = [
     { src: imgEnergyLecture, w: 2000, h: 1334, alt: 'Students following a lecture on energy systems' },
     { src: imgLunchAerial, w: 1334, h: 2000, alt: 'Aerial view of participants sharing lunch' },
     { src: imgLeadershipWinners, w: 2000, h: 1429, alt: 'Winners holding trophies and certificates at the IEEE ComSoc Student Leadership Conference' },
+    { src: imgMarkInStem, w: 2000, h: 1125, alt: 'Participants and speakers posing in front of the Make Your Mark in STEM slide' },
+    { src: imgStemSpeakers, w: 2000, h: 1506, alt: 'Four women speakers at the Make Your Mark in STEM career forum' },
+    { src: imgMttsPanel, w: 1223, h: 918, alt: 'Industry and academic panel at the IEEE MTT-S workshop at Carnegie Mellon University Africa' },
+    { src: imgMttsGroup, w: 1617, h: 910, alt: 'Group photo of students and IEEE leaders on the Carnegie Mellon University Africa steps' },
+    { src: imgMentoringCircle, w: 1212, h: 909, alt: 'Students gathered in a circle for a mentoring conversation with an IEEE leader' },
+    { src: imgWorkshopAudience, w: 1484, h: 989, alt: 'Students and guests following a session in the workshop hall' },
+    { src: imgRegistrationVolunteers, w: 1152, h: 864, alt: 'Smiling volunteers at the MTT-S workshop registration desk' },
 ];

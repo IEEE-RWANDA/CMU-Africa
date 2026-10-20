@@ -33,10 +33,6 @@ import imgPanelist from './assets/gallery/18-panelist.jpg';
 import imgSynergyGroup from './assets/gallery/19-simulation-synergy-group.jpg';
 import imgFireside from './assets/gallery/20-fireside-chat.webp';
 
-// Photos used by the legacy /journal/:id page
-import tour from './assets/Innovation_Lab_Tour.jpg';
-import industry from './assets/Corporate_Partner_Immersion.jpg';
-
 // --- Navigation -------------------------------------------------------------
 // `id` is the section id (and scroll-spy key). `tab` makes the link open that
 // tab of the SB Overview section; `target` is the section to scroll to.
@@ -318,42 +314,4 @@ export const GALLERY_IMAGES = [
     { src: imgAnsysTalk, w: 2000, h: 1333, alt: 'Ansys speaker presenting to students' },
     { src: imgSynergyGroup, w: 2000, h: 1333, alt: 'Group photo on the CMU-Africa steps after the Simulation Synergy workshop' },
     { src: imgFireside, w: 1900, h: 1080, alt: 'Fireside chat with students seated in a semicircle' },
-];
-
-// --- Legacy journal posts (used by /journal/:id) -----------------------------
-export const JOURNAL_POSTS = [
-    {
-        id: 1,
-        date: '12 OCT 2026',
-        title: 'Chasing Light in Namibia',
-        excerpt: 'The dunes of Sossusvlei offer a palette unlike anywhere else on earth.',
-        image: tour,
-        content: `
-            <p>Namibia is a land of contrasts. The stark beauty of the Namib desert, the oldest in the world, presents a unique challenge and opportunity for any photographer.</p>
-            <p>We spent three days camping near Sossusvlei, waking up long before dawn to catch the first rays of sunlight hitting the red dunes. The interplay of light and shadow created abstract forms that felt more like paintings than photographs.</p>
-            <p>The key to shooting in this environment is patience. The light changes rapidly, transforming the landscape from flat and featureless to dramatic and dimensional in a matter of minutes.</p>
-        `
-    },
-    {
-        id: 2,
-        date: '05 SEP 2026',
-        title: 'Gear Guide: GFX 100S II',
-        excerpt: 'Why medium format is the future of our high-end studio editorials.',
-        image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=600',
-        content: `
-            <p>In the studio, detail is everything. We recently upgraded our main driver to the Fujifilm GFX 100S II, and the difference is palpable.</p>
-            <p>The dynamic range allows us to push shadows and pull highlights in ways that were previously impossible without significant noise. For our fashion editorials, where texture and skin tones are paramount, duplicate format is a game changer.</p>
-        `
-    },
-    {
-        id: 3,
-        date: '22 AUG 2026',
-        title: 'Chants of Truimp',
-        excerpt: 'Documenting the vibrant energy of Africa’s most competitive tournament.',
-        image: industry,
-        content: `
-            <p>Accra never sleeps. The energy is infectious, a constant hum of music, conversation, and movement. Documenting the nightlife here requires a fast lens and faster reflexes.</p>
-            <p>We focused on capturing the candid moments – the laughter, the dance, the connection between people. It’s not just about the party; it’s about the community.</p>
-        `
-    },
 ];

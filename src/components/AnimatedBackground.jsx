@@ -14,7 +14,7 @@ const AnimatedBackground = ({ isDark }) => {
                     top: '-20vmin',
                     background: isDark
                         ? 'radial-gradient(circle, rgba(0, 98, 155, 0.20) 0%, rgba(255, 199, 44, 0.06) 100%)'
-                        : 'radial-gradient(circle, rgba(0, 98, 155, 0.15) 0%, rgba(255, 199, 44, 0.10) 100%)',
+                        : 'radial-gradient(circle, rgba(0, 98, 155, 0.20) 0%, rgba(125, 211, 240, 0.14) 100%)',
                     animation: 'morph 15s ease-in-out infinite alternate, spin 20s linear infinite',
                     willChange: 'border-radius, transform',
                     transformOrigin: '30% 30%',
@@ -35,7 +35,7 @@ const AnimatedBackground = ({ isDark }) => {
                     bottom: 0,
                     background: isDark
                         ? 'radial-gradient(circle, rgba(255, 199, 44, 0.12) 0%, rgba(0, 98, 155, 0.12) 100%)'
-                        : 'radial-gradient(circle, rgba(255, 199, 44, 0.15) 0%, rgba(0, 98, 155, 0.10) 100%)',
+                        : 'radial-gradient(circle, rgba(125, 211, 240, 0.22) 0%, rgba(0, 98, 155, 0.14) 100%)',
                     animation: 'morph 10s ease-in-out infinite alternate, spin 26s linear infinite reverse',
                     willChange: 'border-radius, transform',
                     transformOrigin: '10% 10%',

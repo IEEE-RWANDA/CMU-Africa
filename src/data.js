@@ -32,6 +32,8 @@ import imgCertificate from './assets/gallery/17-practicum-certificate.jpg';
 import imgPanelist from './assets/gallery/18-panelist.jpg';
 import imgSynergyGroup from './assets/gallery/19-simulation-synergy-group.jpg';
 import imgFireside from './assets/gallery/20-fireside-chat.webp';
+import imgTangaza from './assets/gallery/21-tangaza-school-outreach.jpg';
+import imgComputerTraining from './assets/gallery/22-computer-training-session.webp';
 
 // --- Navigation -------------------------------------------------------------
 // `id` is the section id (and scroll-spy key). `tab` makes the link open that
@@ -106,7 +108,7 @@ export const ACTIVITY_ITEMS = [
         category: 'stem',
         title: 'Tangaza Fellowship Outreach',
         description: 'Outreach with the Tangaza Fellowship that equips high school students with foundational technical skills.',
-        image: imgStudentSpeaker,
+        image: imgTangaza,
     },
     {
         id: 6,
@@ -114,7 +116,7 @@ export const ACTIVITY_ITEMS = [
         category: 'stem',
         title: 'High School Computer Training',
         description: 'Computer training programs for high school students across Rwanda, opening the door to a future in technology.',
-        image: imgClassroom,
+        image: imgComputerTraining,
     },
 
     // Spotlights

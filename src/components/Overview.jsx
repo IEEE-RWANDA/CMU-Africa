@@ -42,7 +42,7 @@ const Overview = () => {
                                 <h3 className={`text-3xl font-display font-black ${theme.text}`}>Key Milestones</h3>
                                 <ul className={`mt-6 space-y-3 text-base ${theme.text}`}>
                                     {MILESTONES.map((item) => (
-                                        <li key={item} className="flex gap-3"><span className="text-brand">&#10003;</span>{item}</li>
+                                        <li key={item} className="flex gap-3"><span className={theme.accent}>&#10003;</span>{item}</li>
                                     ))}
                                 </ul>
                             </div>

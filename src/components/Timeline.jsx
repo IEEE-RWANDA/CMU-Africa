@@ -5,7 +5,7 @@ import { Icons } from './Icons';
 import { TIMELINE_EVENTS, TIMELINE_FILTERS } from '../data';
 
 const TYPE_STYLES = {
-    ieee: { label: 'IEEE Club', className: 'bg-brand/10 text-brand' },
+    ieee: { label: 'IEEE Club', className: 'bg-brand/10', accent: true },
     collab: { label: 'Collab', className: 'bg-gold/15 text-[#9a7410]' },
 };
 
@@ -42,7 +42,7 @@ const Timeline = ({ theme }) => {
                             role="tab"
                             aria-selected={filter === item.key}
                             onClick={() => setFilter(item.key)}
-                            className={`text-sm uppercase tracking-widest px-5 py-3 rounded-full transition-all duration-300 border whitespace-nowrap ${filter === item.key ? 'border-brand bg-brand/10 text-brand' : `border-transparent ${theme.textMuted} hover:border-brand hover:text-brand`}`}
+                            className={`text-sm uppercase tracking-widest px-5 py-3 rounded-full transition-all duration-300 border whitespace-nowrap ${filter === item.key ? `border-brand bg-brand/10 ${theme.accent}` : `border-transparent ${theme.textMuted} hover:border-brand ${theme.accentHover}`}`}
                         >
                             {item.label}
                         </button>
@@ -67,7 +67,7 @@ const Timeline = ({ theme }) => {
                                     return (
                                         <li key={event.id} className="flex gap-4 md:gap-8">
                                             <div className="w-14 md:w-24 shrink-0 pt-4 text-right">
-                                                <div className="font-display text-4xl md:text-5xl leading-none text-brand">{date.getDate()}</div>
+                                                <div className={`font-display text-4xl md:text-5xl leading-none ${theme.accent}`}>{date.getDate()}</div>
                                                 <div className={`mt-1 text-xs uppercase tracking-widest ${theme.textMuted}`}>
                                                     {date.toLocaleDateString('en-US', { weekday: 'short' })}
                                                 </div>
@@ -77,7 +77,7 @@ const Timeline = ({ theme }) => {
                                                 <span className="absolute -left-[7px] top-6 h-3 w-3 rounded-full bg-brand ring-4 ring-brand/20" />
                                                 <FadeIn delay={idx * 80}>
                                                     <div className={`rounded-2xl border ${theme.border} ${theme.cardBg} p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_20px_40px_rgba(140,13,35,0.10)]`}>
-                                                        <span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] ${type.className}`}>{type.label}</span>
+                                                        <span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] ${type.className} ${type.accent ? theme.accent : ''}`}>{type.label}</span>
                                                         <h3 className={`mt-3 text-lg md:text-xl font-bold leading-snug ${theme.text}`}>{event.title}</h3>
                                                         {event.subtitle && <p className={`mt-1 text-sm ${theme.textMuted}`}>{event.subtitle}</p>}
                                                         <div className={`mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm ${theme.textMuted}`}>

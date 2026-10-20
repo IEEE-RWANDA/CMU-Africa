@@ -25,7 +25,7 @@ const Traces = ({ className = '' }) => (
 );
 
 const TechBackground = ({ isDark }) => {
-    const line = isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(196, 18, 48, 0.08)';
+    const line = isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(200, 16, 46, 0.08)';
     const mask = 'radial-gradient(ellipse at center, black 25%, transparent 75%)';
 
     return (

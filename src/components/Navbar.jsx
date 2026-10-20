@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Icons } from './Icons';
-import { Link, useLocation } from 'react-router-dom';
 import { NAV_LINKS } from '../data';
 import { selectActivityTab } from '../activityTabs';
 import sbLogo from '../assets/logo/sb-logo.png';
@@ -8,7 +7,6 @@ import sbLogo from '../assets/logo/sb-logo.png';
 const Navbar = ({ isDark, isMenuOpen, setIsMenuOpen, theme }) => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [activeSection, setActiveSection] = useState('home');
-    const location = useLocation();
 
     // Handle Scroll Progress and Active Section
     useEffect(() => {
@@ -38,21 +36,17 @@ const Navbar = ({ isDark, isMenuOpen, setIsMenuOpen, theme }) => {
         };
     }, []);
 
-    // The site may be served from a sub-path (e.g. GitHub Pages), so only treat
-    // the journal page as "not home"; on home, plain #anchors work anywhere.
-    const isHome = !location.pathname.includes('/journal/');
-
     return (
         <nav className={`fixed w-full z-50 transition-all duration-300 ${scrollProgress > 0.05 && !isMenuOpen ? `${theme.navBg} backdrop-blur-md border-b ${theme.border}` : 'bg-transparent'} py-4`}>
             <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
                 {/* Logo: drop the final logo at src/assets/logo/sb-logo.png */}
-                <Link to="/" className="flex items-center gap-2 group cursor-pointer">
+                <a href="#home" className="flex items-center gap-2 group cursor-pointer">
                     <img
                         src={sbLogo}
                         alt="IEEE CMU-Africa Student Branch"
                         className={`h-9 md:h-11 w-auto max-w-[62vw] object-contain ${isDark || isMenuOpen ? 'brightness-0 invert' : ''}`}
                     />
-                </Link>
+                </a>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center gap-8 lg:gap-10 font-medium text-sm tracking-widest uppercase">
@@ -62,9 +56,9 @@ const Navbar = ({ isDark, isMenuOpen, setIsMenuOpen, theme }) => {
                         return (
                             <a
                                 key={item.id}
-                                href={isHome ? `#${target}` : `/#${target}`}
+                                href={`#${target}`}
                                 onClick={() => item.tab && selectActivityTab(item.tab)}
-                                className={`relative overflow-hidden group hover:text-brand transition-colors duration-300 ${isActive ? 'text-brand' : ''}`}
+                                className={`relative overflow-hidden group ${theme.accentHover} transition-colors duration-300 ${isActive ? theme.accent : ''}`}
                             >
                                 {item.label}
                                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-brand transform transition-transform duration-300 ${isActive ? 'translate-x-0' : '-translate-x-full group-hover:translate-x-0'}`}></span>

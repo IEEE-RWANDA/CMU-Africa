@@ -7,13 +7,19 @@ export default {
     theme: {
         extend: {
             colors: {
-                // Carnegie Mellon red palette
+                // IEEE red palette
                 brand: {
-                    DEFAULT: '#C41230',
+                    DEFAULT: '#C8102E',
                     dark: '#8C0D23',
                     light: '#FF6B81',
                 },
                 gold: '#D4A017',
+            },
+            // IEEE's brand typeface is Proxima Nova (licensed); Montserrat is the closest free match.
+            // Arial is IEEE's designated fallback.
+            fontFamily: {
+                sans: ['Montserrat', '"Proxima Nova"', 'Arial', 'Helvetica', 'sans-serif'],
+                display: ['Montserrat', '"Proxima Nova"', 'Arial', 'Helvetica', 'sans-serif'],
             },
             keyframes: {
                 'float-slow': {

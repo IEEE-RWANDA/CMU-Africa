@@ -13,11 +13,13 @@ const Hero = ({ isDark, theme }) => {
 
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <FadeIn>
-                    <p className="font-mono text-sm md:text-base tracking-[0.2em] mb-4 text-gold font-semibold">
-                        IEEE CMU-Africa Student Branch
-                    </p>
-                    <h1 className={`text-4xl md:text-6xl lg:text-7xl font-display font-black leading-tight mb-6 bg-gradient-to-r ${isDark ? 'from-brand to-brand-light' : 'from-brand-dark to-brand'} bg-clip-text text-transparent`}>
-                        Grooming the Future <br /> Leaders of Africa.
+                    <h1 className="mb-6">
+                        <span className="block font-mono text-sm md:text-base tracking-[0.2em] mb-4 text-gold font-semibold">
+                            IEEE CMU-Africa Student Branch
+                        </span>
+                        <span className={`block text-3xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight leading-tight bg-gradient-to-r ${isDark ? 'from-brand to-brand-light' : 'from-brand-dark to-brand'} bg-clip-text text-transparent`}>
+                            Grooming the Future <br /> Leaders of Africa.
+                        </span>
                     </h1>
                     <p className={`max-w-3xl mx-auto text-lg md:text-xl ${theme.textMuted} mb-3`}>
                         Learn. Lead. Innovate.

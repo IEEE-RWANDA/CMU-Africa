@@ -31,7 +31,7 @@ const Portfolio = ({ theme }) => {
                             role="tab"
                             aria-selected={activeTab === tab.key}
                             onClick={() => setActiveTab(tab.key)}
-                            className={`text-sm uppercase tracking-widest px-5 py-3 rounded-full transition-all duration-300 border whitespace-nowrap ${activeTab === tab.key ? 'border-brand bg-brand/10 text-brand' : `border-transparent ${theme.textMuted} hover:border-brand hover:text-brand`}`}
+                            className={`text-sm uppercase tracking-widest px-5 py-3 rounded-full transition-all duration-300 border whitespace-nowrap ${activeTab === tab.key ? `border-brand bg-brand/10 ${theme.accent}` : `border-transparent ${theme.textMuted} hover:border-brand ${theme.accentHover}`}`}
                         >
                             {tab.label}
                         </button>
@@ -59,7 +59,7 @@ const Portfolio = ({ theme }) => {
 
                 {activeTab === 'upcoming' && (
                     <p className="mt-12 text-center">
-                        <a href="#timeline" className="text-sm uppercase tracking-[0.25em] text-brand hover:underline">See dates on the timeline &rarr;</a>
+                        <a href="#timeline" className={`text-sm uppercase tracking-[0.25em] ${theme.accent} hover:underline`}>See dates on the timeline &rarr;</a>
                     </p>
                 )}
             </FadeIn>

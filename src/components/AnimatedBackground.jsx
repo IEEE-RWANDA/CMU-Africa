@@ -13,8 +13,8 @@ const AnimatedBackground = ({ isDark }) => {
                     left: '-20vmin',
                     top: '-20vmin',
                     background: isDark
-                        ? 'radial-gradient(circle, rgba(196, 18, 48, 0.20) 0%, rgba(212, 160, 23, 0.06) 100%)'
-                        : 'radial-gradient(circle, rgba(196, 18, 48, 0.15) 0%, rgba(212, 160, 23, 0.10) 100%)',
+                        ? 'radial-gradient(circle, rgba(200, 16, 46, 0.20) 0%, rgba(212, 160, 23, 0.06) 100%)'
+                        : 'radial-gradient(circle, rgba(200, 16, 46, 0.15) 0%, rgba(212, 160, 23, 0.10) 100%)',
                     animation: 'morph 15s ease-in-out infinite alternate, spin 20s linear infinite',
                     willChange: 'border-radius, transform',
                     transformOrigin: '30% 30%',
@@ -34,8 +34,8 @@ const AnimatedBackground = ({ isDark }) => {
                     right: '-10vmin',
                     bottom: 0,
                     background: isDark
-                        ? 'radial-gradient(circle, rgba(212, 160, 23, 0.12) 0%, rgba(196, 18, 48, 0.12) 100%)'
-                        : 'radial-gradient(circle, rgba(212, 160, 23, 0.15) 0%, rgba(196, 18, 48, 0.10) 100%)',
+                        ? 'radial-gradient(circle, rgba(212, 160, 23, 0.12) 0%, rgba(200, 16, 46, 0.12) 100%)'
+                        : 'radial-gradient(circle, rgba(212, 160, 23, 0.15) 0%, rgba(200, 16, 46, 0.10) 100%)',
                     animation: 'morph 10s ease-in-out infinite alternate, spin 26s linear infinite reverse',
                     willChange: 'border-radius, transform',
                     transformOrigin: '10% 10%',
@@ -44,23 +44,6 @@ const AnimatedBackground = ({ isDark }) => {
                     filter: 'blur(40px)'
                 }}
             />
-
-            <style>{`
-                @keyframes morph {
-                    0% {
-                        border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
-                    }
-                    100% {
-                        border-radius: 40% 60%;
-                    }
-                }
-
-                @keyframes spin {
-                    to {
-                        transform: rotate(360deg);
-                    }
-                }
-            `}</style>
         </div>
     );
 };

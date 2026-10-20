@@ -12,6 +12,7 @@ export const ThemeProvider = ({ children }) => {
         navBg: isDark ? 'bg-[#0c0a0b]/90' : 'bg-white/90',
         // accent for small text/links; lighter red on dark for contrast
         accent: isDark ? 'text-brand-light' : 'text-brand',
+        accentHover: isDark ? 'hover:text-brand-light' : 'hover:text-brand',
         border: isDark ? 'border-white/10' : 'border-gray-200',
         cardBg: isDark ? 'bg-[#151011]' : 'bg-white',
     };

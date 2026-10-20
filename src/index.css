@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --brand: #C41230;
+    --brand: #C8102E;
     --brand-dark: #8C0D23;
     --accent-gold: #D4A017;
   }
@@ -16,6 +16,22 @@
   /* keep anchored sections clear of the fixed navbar */
   section[id] {
     scroll-margin-top: 72px;
+  }
+}
+
+/* Hero background blobs */
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+  }
+  100% {
+    border-radius: 40% 60%;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 

@@ -34,6 +34,25 @@ import imgSynergyGroup from './assets/gallery/19-simulation-synergy-group.jpg';
 import imgFireside from './assets/gallery/20-fireside-chat.webp';
 import imgTangaza from './assets/gallery/21-tangaza-school-outreach.jpg';
 import imgComputerTraining from './assets/gallery/22-computer-training-session.webp';
+import imgHandshake from './assets/gallery/23-handshake-comsoc.jpg';
+import imgBannerChat from './assets/gallery/24-ieee-banner-conversation.jpg';
+import imgVisitors from './assets/gallery/25-registration-visitors.jpg';
+import imgQrSpeaker from './assets/gallery/26-speaker-qr-code.jpg';
+import imgLaughing from './assets/gallery/27-laughing-comsoc.jpg';
+import imgAudienceQuestion from './assets/gallery/28-question-from-audience.jpg';
+import imgLectureHall from './assets/gallery/29-tiny-computers-lecture-hall.jpg';
+import imgGuestLecturer from './assets/gallery/30-guest-lecturer-podium.jpg';
+import imgLecternSpeaker from './assets/gallery/31-speaker-at-lectern.jpg';
+import imgSmilingAttendee from './assets/gallery/32-smiling-attendee.jpg';
+import imgBench from './assets/gallery/33-attendees-on-bench.jpg';
+import imgFoundationAttendees from './assets/gallery/34-seated-attendees-ieee-foundation.jpg';
+import imgWiePresenter from './assets/gallery/35-wie-presenter.jpg';
+import imgPanelBackdrop from './assets/gallery/36-panel-ieee-backdrop.jpg';
+import imgVehiclePlant from './assets/gallery/37-industry-visit-vehicle-plant.jpg';
+import imgZipline from './assets/gallery/38-zipline-muhanga-visit.jpg';
+import imgEnergyLecture from './assets/gallery/39-energy-systems-lecture.jpg';
+import imgLunchAerial from './assets/gallery/40-lunch-table-aerial.jpg';
+import imgLeadershipWinners from './assets/gallery/41-synergy-leadership-winners.jpg';
 
 // --- Navigation -------------------------------------------------------------
 // `id` is the section id (and scroll-spy key). `tab` makes the link open that
@@ -273,28 +292,59 @@ export const TEAM_MEMBERS = [
     },
 ];
 
-// --- Timeline (upcoming SB activities) --------------------------------------
-// DEMO DATA: taken from the Spring 2026 plan (ieee-cmu-spring26.netlify.app).
-// Replace with the real upcoming schedule. `date` is ISO (YYYY-MM-DD) and the
-// weekday / month are derived from it. type: 'ieee' | 'collab'
-export const TIMELINE_FILTERS = [
-    { key: 'all', label: 'All' },
-    { key: 'ieee', label: 'IEEE' },
-    { key: 'collab', label: 'Collaboration' },
+// --- Timeline (SB activity) ---------------------------------------------------
+// Events exported from IEEE vTools (IEEE_vTools_Events_20261020091323.csv). `date` / `endDate`
+// are ISO (YYYY-MM-DD); weekday and month are derived from them. Duplicate vTools entries
+// for the same event were merged. category: technical | professional | nontechnical | administrative
+export const TIMELINE_CATEGORIES = {
+    technical: 'Technical',
+    professional: 'Professional',
+    nontechnical: 'Non-technical',
+    administrative: 'Administrative',
+};
+
+const RAW_TIMELINE_EVENTS = [
+    { date: '2026-01-30', title: 'Geospatial Innovation in Africa', venue: 'Kigali Innovation City, Kigali', category: 'technical' },
+    { date: '2026-02-24', title: 'Scaling Innovation for Social Impact: From Startups to Human-Centered Systems', venue: 'Kigali', category: 'technical', cosponsor: 'African Innovators Society' },
+    { date: '2026-03-11', title: 'Executive Monthly Meeting', venue: 'Virtual', category: 'administrative' },
+    { date: '2026-04-23', title: 'Agentic AI For Social Impact: Innovation, Safety and Human-Centered Systems', venue: 'Virtual', category: 'technical' },
+    { date: '2026-04-29', title: 'Executive Monthly Meeting', venue: 'Virtual', category: 'administrative' },
+    { date: '2026-04-29', title: 'Tartan Synergy: Securing the Grid.', venue: 'Bumbogo, Kigali', category: 'technical' },
+    { date: '2026-05-16', title: 'Tech-X Rwanda Committee meeting', venue: 'Virtual', category: 'administrative' },
+    { date: '2026-05-22', title: 'Rwanda Simulation Synergy', venue: 'Kigali', category: 'technical' },
+    { date: '2026-05-30', title: 'Tech-X Rwanda Committee meeting', venue: 'Virtual', category: 'administrative' },
+    { date: '2026-07-03', title: 'The Rooms We Enter, The Spaces We Create (WIE Day 2026)', venue: 'Virtual', category: 'professional' },
+    { date: '2026-07-09', title: 'Executive Monthly Meeting', venue: 'KG 5 Ave, Kigali', category: 'administrative' },
+    { date: '2026-08-06', title: 'Imagine More With IEEE', venue: 'Kigali', category: 'nontechnical' },
+    { date: '2026-08-08', title: 'IEEE SBXchange 2026', venue: 'Virtual', category: 'technical' },
+    { date: '2026-08-14', title: 'IEEE Member Onboarding', venue: 'Virtual', category: 'nontechnical' },
+    { date: '2026-08-15', title: 'TechX Rwanda Committee meeting', venue: 'Virtual', category: 'administrative' },
+    { date: '2026-08-16', title: 'TechX Rwanda x Nano Mentoring', venue: 'Virtual', category: 'administrative' },
+    { date: '2026-08-18', title: 'Connected Futures', venue: 'Kigali', category: 'nontechnical' },
+    { date: '2026-08-28', title: 'Make Your Mark in STEM (From Student to Leader: Building Careers, Confidence, and Connections in STEM)', venue: 'Kigali', category: 'professional' },
+    { date: '2026-09-04', endDate: '2026-09-05', title: 'TechX Rwanda 2026', venue: 'Kigali', category: 'technical' },
+    { date: '2026-09-04', endDate: '2026-09-12', title: 'The Rwanda Ethics Summit: Rethinking Career Growth in a Digital Age', venue: 'Kigali', category: 'professional' },
+    { date: '2026-10-15', endDate: '2026-10-16', title: 'IEEE East Africa Leadership, Innovation & Design Synergy', venue: 'Kigali', category: 'technical' },
 ];
 
-export const TIMELINE_EVENTS = [
-    { id: 1, date: '2026-01-16', type: 'ieee', title: 'Technology and AI Empowerment Program Outreach', time: '3:00 PM', location: 'School Outreach' },
-    { id: 2, date: '2026-01-30', type: 'ieee', title: 'IEEE CMU-Africa Tech Horizons Series', time: '2:00 PM', location: 'A203' },
-    { id: 3, date: '2026-02-06', type: 'collab', title: 'Financial Literacy Workshop', subtitle: 'Women in Tech (TechX Pre-workshop)', time: '4:00 PM', location: 'A203' },
-    { id: 4, date: '2026-02-19', type: 'ieee', title: 'Tech Horizons Series', time: '2:00 PM', location: 'Virtual Event' },
-    { id: 5, date: '2026-02-20', type: 'ieee', title: 'Technology and AI Empowerment Program Outreach', time: '3:00 PM', location: 'School Outreach' },
-    { id: 6, date: '2026-02-28', type: 'collab', title: 'Interschool Hackathon', subtitle: 'Africa Innovators (TechX Pre-workshop)', time: '10:00 AM', location: 'A203' },
-    { id: 7, date: '2026-03-14', type: 'ieee', title: 'Industry Tour', time: '9:00 AM', location: 'TBD' },
-    { id: 8, date: '2026-03-28', type: 'ieee', title: 'Tech X Rwanda ’26', time: '9:00 AM', location: 'A203' },
+// Group by term: Spring = Jan-May, Summer = Jun-Aug, Fall = Sep-Dec
+const termOf = (iso) => {
+    const month = Number(iso.slice(5, 7));
+    const season = month <= 5 ? 'Spring' : month <= 8 ? 'Summer' : 'Fall';
+    return `${season} ${iso.slice(0, 4)}`;
+};
+
+export const TIMELINE_EVENTS = RAW_TIMELINE_EVENTS
+    .map((event, index) => ({ id: index + 1, term: termOf(event.date), ...event }))
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+export const TIMELINE_FILTERS = [
+    { key: 'all', label: 'All' },
+    ...[...new Set(TIMELINE_EVENTS.map((event) => event.term))].map((term) => ({ key: term, label: term })),
 ];
 
 // --- Gallery (previous activities) ------------------------------------------
+// w/h are the photo's pixel size; the gallery groups photos by orientation from them.
 export const GALLERY_IMAGES = [
     { src: imgSealGroup, w: 2000, h: 1250, alt: 'Members and guests gathered in front of the Carnegie Mellon University seal' },
     { src: imgHackathonWinners, w: 2000, h: 1600, alt: 'TechX Rwanda 2026 hackathon winners holding their trophies' },
@@ -316,4 +366,23 @@ export const GALLERY_IMAGES = [
     { src: imgAnsysTalk, w: 2000, h: 1333, alt: 'Ansys speaker presenting to students' },
     { src: imgSynergyGroup, w: 2000, h: 1333, alt: 'Group photo on the CMU-Africa steps after the Simulation Synergy workshop' },
     { src: imgFireside, w: 1900, h: 1080, alt: 'Fireside chat with students seated in a semicircle' },
+    { src: imgHandshake, w: 2000, h: 1429, alt: 'Two IEEE ComSoc members shaking hands in front of an IEEE Region 8 banner' },
+    { src: imgBannerChat, w: 2000, h: 1429, alt: 'Three students chatting in front of the IEEE and Carnegie Mellon University Africa banner' },
+    { src: imgVisitors, w: 2000, h: 1429, alt: 'Volunteers welcoming visitors at the registration desk' },
+    { src: imgQrSpeaker, w: 2000, h: 1429, alt: 'Speaker pointing to a QR code projected on the wall' },
+    { src: imgLaughing, w: 2000, h: 1600, alt: 'Two IEEE ComSoc members laughing together' },
+    { src: imgAudienceQuestion, w: 2000, h: 1600, alt: 'Participant asking a question during a session' },
+    { src: imgLectureHall, w: 2000, h: 1125, alt: 'Packed lecture hall of students with laptops during a technical talk' },
+    { src: imgGuestLecturer, w: 2000, h: 1428, alt: 'Guest lecturer speaking at the Carnegie Mellon University Africa lectern' },
+    { src: imgLecternSpeaker, w: 2000, h: 1600, alt: 'Speaker explaining a point at the lectern' },
+    { src: imgSmilingAttendee, w: 1600, h: 2000, alt: 'Smiling attendee in an IEEE Rwanda GRSS shirt' },
+    { src: imgBench, w: 2000, h: 1535, alt: 'Three guests seated on a bench in the lobby' },
+    { src: imgFoundationAttendees, w: 2000, h: 1600, alt: 'Two smiling attendees with IEEE Foundation lanyards' },
+    { src: imgWiePresenter, w: 534, h: 800, alt: 'Student presenting in front of an IEEE Women in Engineering slide' },
+    { src: imgPanelBackdrop, w: 2000, h: 1334, alt: 'Panelist speaking in front of the IEEE societies backdrop' },
+    { src: imgVehiclePlant, w: 2000, h: 1333, alt: 'Members posing during an industry visit to a vehicle assembly plant' },
+    { src: imgZipline, w: 2000, h: 1171, alt: 'Students arriving at the Zipline Muhanga site for an industry visit' },
+    { src: imgEnergyLecture, w: 2000, h: 1334, alt: 'Students following a lecture on energy systems' },
+    { src: imgLunchAerial, w: 1334, h: 2000, alt: 'Aerial view of participants sharing lunch' },
+    { src: imgLeadershipWinners, w: 2000, h: 1429, alt: 'Winners holding trophies and certificates at the IEEE ComSoc Student Leadership Conference' },
 ];

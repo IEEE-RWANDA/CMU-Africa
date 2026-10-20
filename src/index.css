@@ -19,6 +19,20 @@
   }
 }
 
+/* Gallery slideshow: the incoming photo fades in over the previous one */
+@keyframes slide-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-fade {
+  animation: slide-fade 1200ms ease-in-out both;
+}
+
 /* Hero background blobs */
 @keyframes morph {
   0% {
@@ -97,7 +111,8 @@
 
   .logo-marquee,
   .trace-pulse,
-  .trace-node {
+  .trace-node,
+  .slide-fade {
     animation: none;
   }
 }

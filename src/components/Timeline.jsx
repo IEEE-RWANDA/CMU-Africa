@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import SectionHeading from './SectionHeading';
 import FadeIn from './FadeIn';
 import { Icons } from './Icons';
-import { TIMELINE_EVENTS, TIMELINE_FILTERS } from '../data';
-
-const TYPE_STYLES = {
-    ieee: { label: 'IEEE Club', className: 'bg-brand/10', accent: true },
-    collab: { label: 'Collab', className: 'bg-gold/15', gold: true },
-};
+import { TIMELINE_EVENTS, TIMELINE_FILTERS, TIMELINE_CATEGORIES } from '../data';
 
 const parse = (iso) => new Date(`${iso}T00:00:00`);
+
+const shortDate = (iso) => parse(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 
 const groupByMonth = (events) => {
     const groups = [];
@@ -25,17 +22,22 @@ const groupByMonth = (events) => {
 const Timeline = ({ theme }) => {
     const [filter, setFilter] = useState('all');
 
-    const events = TIMELINE_EVENTS
-        .filter((event) => filter === 'all' || event.type === filter)
-        .sort((a, b) => a.date.localeCompare(b.date));
+    const categoryStyles = {
+        technical: `bg-brand/10 ${theme.accent}`,
+        nontechnical: `bg-brand/10 ${theme.accent}`,
+        professional: `bg-gold/15 ${theme.goldText}`,
+        administrative: `bg-gray-500/15 ${theme.textMuted}`,
+    };
+
+    const events = TIMELINE_EVENTS.filter((event) => filter === 'all' || event.term === filter);
     const groups = groupByMonth(events);
 
     return (
         <section id="timeline" className="py-24 px-4 md:px-8 lg:px-12 transition-colors duration-500">
             <div className="w-full max-w-4xl mx-auto">
-                <SectionHeading title="Timeline" subtitle="Upcoming SB Activities" />
+                <SectionHeading title="Timeline" subtitle="Stay in the loop of all SB activity" />
 
-                <div className="flex flex-nowrap justify-center gap-4 md:gap-8 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="Filter activities">
+                <div className="flex flex-nowrap justify-center gap-4 md:gap-8 mb-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="Filter activities by term">
                     {TIMELINE_FILTERS.map((item) => (
                         <button
                             key={item.key}
@@ -63,7 +65,6 @@ const Timeline = ({ theme }) => {
                             <ul>
                                 {group.events.map((event, idx) => {
                                     const date = parse(event.date);
-                                    const type = TYPE_STYLES[event.type];
                                     return (
                                         <li key={event.id} className="flex gap-4 md:gap-8">
                                             <div className="w-14 md:w-24 shrink-0 pt-4 text-right">
@@ -71,18 +72,22 @@ const Timeline = ({ theme }) => {
                                                 <div className={`mt-1 text-xs uppercase tracking-widest ${theme.textMuted}`}>
                                                     {date.toLocaleDateString('en-US', { weekday: 'short' })}
                                                 </div>
+                                                {event.endDate && (
+                                                    <div className={`mt-1 text-[10px] uppercase tracking-wider leading-tight ${theme.textMuted}`}>
+                                                        to {shortDate(event.endDate)}
+                                                    </div>
+                                                )}
                                             </div>
 
                                             <div className={`relative flex-1 min-w-0 border-l-2 ${theme.rail} pl-6 md:pl-10 pb-8`}>
                                                 <span className="absolute -left-[7px] top-6 h-3 w-3 rounded-full bg-gold ring-4 ring-gold/25" />
                                                 <FadeIn delay={idx * 80}>
                                                     <div className={`rounded-2xl border ${theme.border} ${theme.cardBg} p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_20px_40px_rgba(0,40,85,0.10)]`}>
-                                                        <span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] ${type.className} ${type.accent ? theme.accent : ''} ${type.gold ? theme.goldText : ''}`}>{type.label}</span>
+                                                        <span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] ${categoryStyles[event.category]}`}>{TIMELINE_CATEGORIES[event.category]}</span>
                                                         <h3 className={`mt-3 text-lg md:text-xl font-bold leading-snug ${theme.text}`}>{event.title}</h3>
-                                                        {event.subtitle && <p className={`mt-1 text-sm ${theme.textMuted}`}>{event.subtitle}</p>}
+                                                        {event.cosponsor && <p className={`mt-1 text-sm ${theme.textMuted}`}>With {event.cosponsor}</p>}
                                                         <div className={`mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm ${theme.textMuted}`}>
-                                                            <span className="inline-flex items-center gap-2"><Icons.Clock size={15} />{event.time}</span>
-                                                            <span className="inline-flex items-center gap-2"><Icons.MapPin size={15} />{event.location}</span>
+                                                            <span className="inline-flex items-center gap-2"><Icons.MapPin size={15} />{event.venue}</span>
                                                         </div>
                                                     </div>
                                                 </FadeIn>

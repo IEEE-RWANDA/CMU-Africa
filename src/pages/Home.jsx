@@ -8,6 +8,7 @@ import Portfolio from '../components/Portfolio';
 import Timeline from '../components/Timeline';
 import Collaborators from '../components/Collaborators';
 import Gallery from '../components/Gallery';
+import LinkedInFeed from '../components/LinkedInFeed';
 import Contact from '../components/Contact';
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
             <Timeline theme={theme} />
             <Collaborators />
             <Gallery />
+            <LinkedInFeed />
             <Contact theme={theme} />
         </div>
     );

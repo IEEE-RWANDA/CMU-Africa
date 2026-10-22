@@ -26,7 +26,6 @@ const Timeline = ({ theme }) => {
         technical: `bg-brand/10 ${theme.accent}`,
         nontechnical: `bg-brand/10 ${theme.accent}`,
         professional: `bg-gold/15 ${theme.goldText}`,
-        administrative: `bg-gray-500/15 ${theme.textMuted}`,
     };
 
     const events = TIMELINE_EVENTS.filter((event) => filter === 'all' || event.term === filter);

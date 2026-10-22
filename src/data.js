@@ -303,31 +303,20 @@ export const TEAM_MEMBERS = [
 // --- Timeline (SB activity) ---------------------------------------------------
 // Events exported from IEEE vTools (IEEE_vTools_Events_20261020091323.csv). `date` / `endDate`
 // are ISO (YYYY-MM-DD); weekday and month are derived from them. Duplicate vTools entries
-// for the same event were merged. category: technical | professional | nontechnical | administrative
+// for the same event were merged. Executive/committee meetings and virtual events are not listed.
+// category: technical | professional | nontechnical
 export const TIMELINE_CATEGORIES = {
     technical: 'Technical',
     professional: 'Professional',
     nontechnical: 'Non-technical',
-    administrative: 'Administrative',
 };
 
 const RAW_TIMELINE_EVENTS = [
     { date: '2026-01-30', title: 'Geospatial Innovation in Africa', venue: 'Kigali Innovation City, Kigali', category: 'technical' },
     { date: '2026-02-24', title: 'Scaling Innovation for Social Impact: From Startups to Human-Centered Systems', venue: 'Kigali', category: 'technical', cosponsor: 'African Innovators Society' },
-    { date: '2026-03-11', title: 'Executive Monthly Meeting', venue: 'Virtual', category: 'administrative' },
-    { date: '2026-04-23', title: 'Agentic AI For Social Impact: Innovation, Safety and Human-Centered Systems', venue: 'Virtual', category: 'technical' },
-    { date: '2026-04-29', title: 'Executive Monthly Meeting', venue: 'Virtual', category: 'administrative' },
     { date: '2026-04-29', title: 'Tartan Synergy: Securing the Grid.', venue: 'Bumbogo, Kigali', category: 'technical' },
-    { date: '2026-05-16', title: 'Tech-X Rwanda Committee meeting', venue: 'Virtual', category: 'administrative' },
     { date: '2026-05-22', title: 'Rwanda Simulation Synergy', venue: 'Kigali', category: 'technical' },
-    { date: '2026-05-30', title: 'Tech-X Rwanda Committee meeting', venue: 'Virtual', category: 'administrative' },
-    { date: '2026-07-03', title: 'The Rooms We Enter, The Spaces We Create (WIE Day 2026)', venue: 'Virtual', category: 'professional' },
-    { date: '2026-07-09', title: 'Executive Monthly Meeting', venue: 'KG 5 Ave, Kigali', category: 'administrative' },
     { date: '2026-08-06', title: 'Imagine More With IEEE', venue: 'Kigali', category: 'nontechnical' },
-    { date: '2026-08-08', title: 'IEEE SBXchange 2026', venue: 'Virtual', category: 'technical' },
-    { date: '2026-08-14', title: 'IEEE Member Onboarding', venue: 'Virtual', category: 'nontechnical' },
-    { date: '2026-08-15', title: 'TechX Rwanda Committee meeting', venue: 'Virtual', category: 'administrative' },
-    { date: '2026-08-16', title: 'TechX Rwanda x Nano Mentoring', venue: 'Virtual', category: 'administrative' },
     { date: '2026-08-18', title: 'Connected Futures', venue: 'Kigali', category: 'nontechnical' },
     { date: '2026-08-28', title: 'Make Your Mark in STEM (From Student to Leader: Building Careers, Confidence, and Connections in STEM)', venue: 'Kigali', category: 'professional' },
     { date: '2026-09-04', endDate: '2026-09-05', title: 'TechX Rwanda 2026', venue: 'Kigali', category: 'technical' },

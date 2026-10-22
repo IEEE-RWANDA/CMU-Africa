@@ -18,14 +18,14 @@ const Hero = ({ isDark, theme }) => {
                             IEEE CMU-Africa Student Branch
                         </span>
                         <span className={`block text-3xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight leading-tight bg-gradient-to-r ${isDark ? 'from-brand-light to-[#2E9BD6]' : 'from-brand-dark to-brand'} bg-clip-text text-transparent`}>
-                            Grooming the Future <br /> Leaders of Africa.
+                            Grooming Future <br /> Tech Leaders.
                         </span>
                     </h1>
                     <p className={`max-w-3xl mx-auto text-lg md:text-xl ${theme.textMuted} mb-3`}>
                         Lead. Build. Innovate.
                     </p>
                     <p className={`max-w-2xl mx-auto text-base ${theme.textMuted} mb-10`}>
-                        A student-led IEEE community at <strong className="font-bold">Carnegie Mellon University Africa</strong> in Kigali, Rwanda.
+                        A student-led IEEE community at <strong className="font-bold">Carnegie Mellon University Africa</strong>.
                     </p>
                     <div className="flex justify-center">
                         <a href="#about" className={`px-10 py-4 border font-bold uppercase tracking-widest transition-all duration-300 rounded-full ${isDark ? 'border-brand-light text-brand-light hover:bg-brand-light hover:text-[#0a1f3d]' : 'border-brand text-brand hover:bg-brand hover:text-white'}`}>
